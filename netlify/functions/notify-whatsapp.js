@@ -5,7 +5,7 @@
 //   CALLMEBOT_PHONE   -> número de WhatsApp que vai RECEBER o aviso, com DDI (ex: +5515996528429)
 //   CALLMEBOT_APIKEY  -> apikey recebida do bot do CallMeBot depois do opt-in
 
-exports.handler = async (event) => {
+export const handler = async (event) => {
   try {
     const body = JSON.parse(event.body || "{}");
     const data = (body.payload && (body.payload.data || body.payload.human_fields)) || {};
