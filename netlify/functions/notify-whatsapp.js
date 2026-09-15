@@ -7,14 +7,36 @@
 
 export const handler = async (event) => {
   try {
-    const body = JSON.parse(event.body || "{}");
-    const data = (body.payload && (body.payload.data || body.payload.human_fields)) || {};
+    const raw = event.body || "{}";
+    console.log("RAW BODY:", raw);
 
-    const name = data.name || "Não informado";
-    const email = data.email || "Não informado";
-    const phone = data.phone || "Não informado";
-    const service = data.service || "Não informado";
-    const message = data.message || "—";
+    const body = JSON.parse(raw);
+
+    // O formato exato do payload de outgoing webhook do Netlify pode variar;
+    // tentamos vários caminhos possíveis até achar os campos do formulário.
+    const candidates = [
+      body?.payload?.data,
+      body?.payload?.human_fields,
+      body?.data,
+      body?.human_fields,
+      body,
+    ];
+    const data = candidates.find((c) => c && typeof c === "object" && Object.keys(c).length > 0) || {};
+
+    console.log("DATA ESCOLHIDA:", JSON.stringify(data));
+
+    const pick = (obj, keys) => {
+      for (const k of keys) {
+        if (obj[k]) return obj[k];
+      }
+      return null;
+    };
+
+    const name = pick(data, ["name", "Name", "nome"]) || "Não informado";
+    const email = pick(data, ["email", "Email", "e-mail"]) || "Não informado";
+    const phone = pick(data, ["phone", "Phone", "whatsapp", "WhatsApp", "telefone"]) || "Não informado";
+    const service = pick(data, ["service", "Service", "serviço", "servico"]) || "Não informado";
+    const message = pick(data, ["message", "Message", "mensagem"]) || "—";
 
     const text =
       `Novo contato pelo site WK Media\n\n` +
@@ -44,7 +66,6 @@ export const handler = async (event) => {
     return { statusCode: 200, body: "ok" };
   } catch (err) {
     console.error("Erro ao notificar WhatsApp:", err);
-    // Sempre responde 200 pro Netlify não ficar re-tentando o webhook indefinidamente
     return { statusCode: 200, body: "error handled" };
   }
 };
