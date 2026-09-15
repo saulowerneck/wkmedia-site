@@ -27,6 +27,14 @@ export default function WhatsAppButton() {
         rel="noopener noreferrer"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onClick={() => {
+          if (typeof window !== "undefined" && (window as any).gtag) {
+            (window as any).gtag("event", "generate_lead", {
+              event_category: "engagement",
+              event_label: "Botão flutuante WhatsApp",
+            });
+          }
+        }}
         className="w-14 h-14 flex items-center justify-center bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300"
         aria-label="Falar no WhatsApp"
       >

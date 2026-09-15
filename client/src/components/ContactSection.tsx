@@ -25,6 +25,12 @@ export default function ContactSection() {
         body: encodeFormData({ "form-name": "contato", ...formData }),
       });
       toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("event", "generate_lead", {
+          event_category: "engagement",
+          event_label: "Formulário de contato",
+        });
+      }
       setFormData({ name: "", email: "", phone: "", service: "", message: "" });
     } catch (err) {
       toast.error("Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.");
