@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>WK Media | Agência de Marketing e Produtora de Vídeo em Sorocaba</title>
+    <meta name="description" content="WK Media - Agência de marketing digital e produtora de vídeo em Sorocaba. Produção de vídeo, fotografia comercial, social media, gestão de tráfego pago, branding, criação de sites, drone e consultoria estratégica." />
+    <meta name="keywords" content="agência de marketing Sorocaba, produtora de vídeo Sorocaba, gestão de redes sociais Sorocaba, filmagem com drone Sorocaba, branding, tráfego pago, criação de sites" />
+    <meta name="author" content="WK Media" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0066FF" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="WK Media | Agência de Marketing e Produtora de Vídeo Premium" />
+    <meta property="og:description" content="Conteúdo que vende. Estratégia que cresce. Imagem que posiciona. Vídeos, marketing e presença digital para empresas que querem ser lembradas." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.wkmedia.com.br" />
+    <link rel="canonical" href="https://www.wkmedia.com.br" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Formulário estático "espelho" apenas para o Netlify detectar os campos no build. -->
+    <!-- O formulário real (visível) fica em ContactSection.tsx e envia os dados pra cá via fetch. -->
+    <form name="contato" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="service" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
+  </body>
+</html>
