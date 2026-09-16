@@ -2,12 +2,12 @@
 import { Instagram, Youtube, Linkedin, Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 
 const QUICK_LINKS = [
-  { label: "Início", href: "#inicio" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Portfólio", href: "#portfolio" },
-  { label: "Sobre", href: "#sobre" },
+  { label: "Início", href: "/#inicio" },
+  { label: "Serviços", href: "/#servicos" },
+  { label: "Portfólio", href: "/#portfolio" },
+  { label: "Sobre", href: "/#sobre" },
   { label: "Blog", href: "/blog" },
-  { label: "Contato", href: "#contato" },
+  { label: "Contato", href: "/#contato" },
 ];
 
 const SERVICES_LINKS = [
@@ -76,7 +76,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {SERVICES_LINKS.map((s) => (
                 <li key={s}>
-                  <a href="#servicos" className="text-white/30 text-sm hover:text-[var(--color-electric)] transition-colors duration-300">
+                  <a href="/#servicos" className="text-white/30 text-sm hover:text-[var(--color-electric)] transition-colors duration-300">
                     {s}
                   </a>
                 </li>

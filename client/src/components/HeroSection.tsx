@@ -68,11 +68,11 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <a href="#contato" className="btn-electric">
+            <a href="/#contato" className="btn-electric">
               Solicitar Orçamento
               <ArrowRight size={18} />
             </a>
-            <a href="#portfolio" className="btn-outline-white">
+            <a href="/#portfolio" className="btn-outline-white">
               <Play size={16} />
               Ver Portfólio
             </a>

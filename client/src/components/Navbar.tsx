@@ -4,12 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Início", href: "#inicio" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Portfólio", href: "#portfolio" },
-  { label: "Sobre", href: "#sobre" },
+  { label: "Início", href: "/#inicio" },
+  { label: "Serviços", href: "/#servicos" },
+  { label: "Portfólio", href: "/#portfolio" },
+  { label: "Sobre", href: "/#sobre" },
   { label: "Blog", href: "/blog" },
-  { label: "Contato", href: "#contato" },
+  { label: "Contato", href: "/#contato" },
 ];
 
 export default function Navbar() {
@@ -40,7 +40,7 @@ export default function Navbar() {
         }`}
       >
         <div className="container flex items-center justify-between h-20">
-          <a href="#inicio" className="relative z-10 flex items-center gap-3">
+          <a href="/#inicio" className="relative z-10 flex items-center gap-3">
             <img src="/logo-circle.png" alt="WK Media" className="w-10 h-10" />
             <span className="text-2xl font-bold tracking-tight text-white" style={{ fontFamily: "var(--font-display)" }}>
               WK
@@ -74,7 +74,7 @@ export default function Navbar() {
               <MessageCircle size={16} />
               WhatsApp
             </a>
-            <a href="#contato" className="btn-electric !py-3 !px-6 !text-xs">
+            <a href="/#contato" className="btn-electric !py-3 !px-6 !text-xs">
               Orçamento
             </a>
           </div>
@@ -114,7 +114,7 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <motion.a
-                href="#contato"
+                href="/#contato"
                 onClick={() => setMobileOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

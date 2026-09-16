@@ -180,7 +180,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-12 text-center"
         >
-          <a href="#contato" className="btn-electric">
+          <a href="/#contato" className="btn-electric">
             Solicitar Orçamento Personalizado
             <ArrowUpRight size={18} />
           </a>

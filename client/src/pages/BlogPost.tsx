@@ -124,7 +124,7 @@ export default function BlogPost() {
           </article>
 
           <div className="mt-16 pt-8 border-t border-white/5">
-            <a href="#contato" className="btn-electric">
+            <a href="/#contato" className="btn-electric">
               Solicitar Orçamento
             </a>
           </div>
