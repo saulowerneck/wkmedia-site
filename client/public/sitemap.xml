@@ -26,6 +26,21 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://wkmedia.com.br/blog/filmagem-com-drone-rbac-100-o-que-checar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wkmedia.com.br/blog/busca-com-ia-o-que-muda-para-empresa-local</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://wkmedia.com.br/blog/bastidores-diaria-gravacao-video-institucional</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://wkmedia.com.br/privacidade</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
