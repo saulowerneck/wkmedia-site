@@ -436,6 +436,103 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "seo-local-sorocaba-como-aparecer-no-google",
+    title: "SEO local em Sorocaba: como aparecer quando alguém busca seu serviço na região",
+    excerpt:
+      "O que realmente define quem aparece no topo do mapa do Google em buscas locais — e um roteiro prático pra colocar sua empresa na frente de quem já está procurando em Sorocaba e região.",
+    date: "2026-10-14",
+    category: "SEO Local",
+    readTime: "7 min de leitura",
+    content: [
+      {
+        type: "p",
+        text: "Quando alguém digita \"marcenaria em Sorocaba\", \"clínica odontológica perto de mim\" ou \"buffet Votorantim\", o Google não mostra um site qualquer: ele mostra três empresas num bloco de mapa, com nota, telefone e botão de rota. Essas três posições concentram a maior parte dos cliques — e quem está fora delas disputa a sobra. A boa notícia é que esse bloco não é leilão: dá pra entrar nele sem gastar um real em anúncio, desde que você entenda o que o Google usa pra escolher quem aparece.",
+      },
+      { type: "h2", text: "Os três critérios que decidem quem aparece no mapa" },
+      {
+        type: "p",
+        text: "O Google é bem transparente sobre isso e resume em três fatores: relevância (o quanto seu perfil corresponde ao que a pessoa buscou), distância (onde ela está ou qual região ela citou na busca) e destaque (o quanto sua empresa é conhecida e citada na internet). Distância você não controla. Relevância e destaque, sim — e é aí que a maioria das empresas da região deixa dinheiro na mesa.",
+      },
+      { type: "h2", text: "1. Perfil da Empresa no Google: preencher tudo, não o mínimo" },
+      {
+        type: "p",
+        text: "O antigo Google Meu Negócio, hoje Perfil da Empresa no Google, é o item de maior impacto e o mais negligenciado. A maioria dos perfis de Sorocaba que a gente audita tem nome, endereço e telefone — e para por aí. Perfil pela metade é relevância pela metade.",
+      },
+      {
+        type: "list",
+        items: [
+          "Categoria principal exata — \"fotógrafo de casamento\" e \"estúdio fotográfico\" competem em buscas diferentes. Escolha a que descreve o que você mais quer vender e use as secundárias para o resto.",
+          "Todos os serviços cadastrados, um a um, com descrição própria. Cada serviço vira um termo a mais pelo qual você pode aparecer.",
+          "Área de atendimento definida — se você atende Sorocaba, Votorantim, Itu e Salto, isso precisa estar no perfil, não só na sua cabeça.",
+          "Horário de funcionamento sempre atualizado, incluindo feriados. Perfil com horário errado derruba confiança e gera avaliação ruim.",
+          "Fotos reais e recentes: fachada, equipe, ambiente e trabalho entregue. Perfis com atualização constante de foto tendem a receber mais interação do que perfis parados há meses.",
+          "Posts no perfil — é um canal gratuito e quase ninguém usa. Uma publicação por semana já coloca você à frente da maioria dos concorrentes locais.",
+        ],
+      },
+      { type: "h2", text: "2. Avaliações: a frequência pesa mais que o número total" },
+      {
+        type: "p",
+        text: "Ter 200 avaliações acumuladas em 2019 vale menos do que ter 40 com entrada constante nos últimos meses. O sinal que interessa é o de negócio ativo. E responder também conta: uma resposta objetiva a cada avaliação, boa ou ruim, mostra operação viva e dá ao Google mais texto associado ao seu perfil.",
+      },
+      {
+        type: "quote",
+        text: "Não peça \"uma avaliação\". Peça uma avaliação que mencione o serviço e a cidade — é isso que o algoritmo consegue ler.",
+      },
+      {
+        type: "p",
+        text: "Crie um processo, não uma campanha: um link curto de avaliação enviado por WhatsApp logo depois da entrega, quando o cliente ainda está satisfeito, converte muito mais do que um pedido genérico no fim do mês. E nunca compre avaliação — o Google detecta padrões e a punição atinge o perfil inteiro.",
+      },
+      { type: "h2", text: "3. Nome, endereço e telefone idênticos em todo lugar" },
+      {
+        type: "p",
+        text: "Esse é o erro invisível que trava muita empresa boa. Se o seu endereço aparece como \"Av. Dom Aguirre, 1200\" no Google, \"Avenida Dom Aguirre 1.200\" no Facebook e \"Av. D. Aguirre, 1200 - sala 3\" no site, o Google fica em dúvida se é a mesma empresa — e a dúvida custa posição. Padronize a grafia exata de nome, endereço e telefone e replique igual no site, nas redes sociais e em qualquer diretório onde você esteja listado.",
+      },
+      { type: "h2", text: "4. Páginas por cidade: quando ajuda e quando vira spam" },
+      {
+        type: "p",
+        text: "Criar uma página do site para cada cidade que você atende funciona — desde que cada página tenha conteúdo próprio de verdade. Uma página \"Produção de vídeo em Votorantim\" com case local, fotos de um trabalho feito ali e informações específicas da região é útil. Dez páginas idênticas com o nome da cidade trocado é exatamente o que o Google classifica como conteúdo de baixa qualidade, e o efeito é o oposto do desejado. Regra prática: só crie a página da cidade se você tiver o que contar sobre aquela cidade.",
+      },
+      { type: "h2", text: "5. Conteúdo do site com contexto local real" },
+      {
+        type: "list",
+        items: [
+          "Cite a região no texto de forma natural, em títulos e descrições — não com a cidade enfiada em toda frase.",
+          "Publique cases de clientes da região, com nome e segmento, quando houver autorização.",
+          "Mantenha uma página de contato com endereço completo, mapa incorporado e telefone clicável.",
+          "Use marcação de dados estruturados (schema LocalBusiness) — é código no site, invisível pro visitante, mas é como o Google confirma seus dados de negócio.",
+          "Garanta que o site abra rápido no celular: boa parte das buscas locais acontece no telefone, em movimento, e página lenta perde o cliente antes de carregar.",
+        ],
+      },
+      { type: "h2", text: "Como saber se está funcionando" },
+      {
+        type: "p",
+        text: "SEO local tem a vantagem de ser mensurável sem ferramenta paga. O próprio painel do Perfil da Empresa mostra o essencial:",
+      },
+      {
+        type: "list",
+        items: [
+          "Quantas pessoas viram seu perfil na busca e quantas viram no mapa",
+          "Quantas pediram rota, ligaram ou clicaram no site a partir do perfil",
+          "Quais termos de busca levaram até você — esse é o dado mais valioso, porque revela o vocabulário que o seu cliente realmente usa",
+          "Evolução do número de avaliações por mês",
+        ],
+      },
+      {
+        type: "p",
+        text: "Acompanhe esses números mensalmente. Ligações e pedidos de rota são métrica de negócio; visualização de perfil sozinha, não. Se as visualizações sobem e os contatos não, o problema costuma estar no que o perfil mostra — fotos fracas, poucas avaliações ou serviço mal descrito.",
+      },
+      { type: "h2", text: "Por onde começar nesta semana" },
+      {
+        type: "p",
+        text: "Se você fizer só três coisas nos próximos sete dias, faça estas: complete 100% do Perfil da Empresa no Google, padronize nome/endereço/telefone em todos os canais e peça avaliação a cinco clientes recentes. Isso já move o ponteiro em quase todo negócio local que atende Sorocaba e região, e não custa nada além do seu tempo.",
+      },
+      {
+        type: "p",
+        text: "Se quiser que a gente faça esse diagnóstico pra você — auditoria do perfil, correção dos dados e estrutura de conteúdo local no site —, é só chamar a WK Media. A gente devolve um plano com o que priorizar primeiro, não uma lista de 40 itens genéricos.",
+      },
+    ],
+  },
 ];
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
