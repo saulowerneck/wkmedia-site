@@ -1,5 +1,5 @@
 /* Brutalist Luxury — Footer: premium with links, social, contact */
-import { Instagram, Youtube, Linkedin, Mail, Phone, MapPin, ArrowUp } from "lucide-react";
+import { Instagram, Facebook, Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 
 const QUICK_LINKS = [
   { label: "Início", href: "/#inicio" },
@@ -40,14 +40,23 @@ export default function Footer() {
               Conteúdo que vende. Estratégia que cresce. Imagem que posiciona. Sua agência de marketing e produtora audiovisual em Sorocaba.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/40 hover:border-[var(--color-electric)] hover:text-[var(--color-electric)] transition-all duration-300">
+              <a
+                href="https://www.instagram.com/wk.media_sorocaba"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram da WK Media"
+                className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/40 hover:border-[var(--color-electric)] hover:text-[var(--color-electric)] transition-all duration-300"
+              >
                 <Instagram size={16} />
               </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/40 hover:border-[var(--color-electric)] hover:text-[var(--color-electric)] transition-all duration-300">
-                <Youtube size={16} />
-              </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/40 hover:border-[var(--color-electric)] hover:text-[var(--color-electric)] transition-all duration-300">
-                <Linkedin size={16} />
+              <a
+                href="https://www.facebook.com/share/1M1uSE9fZv/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook da WK Media"
+                className="w-10 h-10 flex items-center justify-center border border-white/10 text-white/40 hover:border-[var(--color-electric)] hover:text-[var(--color-electric)] transition-all duration-300"
+              >
+                <Facebook size={16} />
               </a>
             </div>
           </div>
