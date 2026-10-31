@@ -1,5 +1,5 @@
 /* Brutalist Luxury — Footer: premium with links, social, contact */
-import { SETTINGS, STORE_ENABLED } from "@/lib/store";
+import { SETTINGS, SHOW_STORE_LINK, STORE_ENABLED } from "@/lib/store";
 import { Instagram, Facebook, Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 
 const QUICK_LINKS = [
@@ -8,7 +8,7 @@ const QUICK_LINKS = [
   { label: "Portfólio", href: "/#portfolio" },
   { label: "Sobre", href: "/#sobre" },
   { label: "Blog", href: "/blog" },
-  ...(STORE_ENABLED ? [{ label: SETTINGS.name, href: "/loja" }] : []),
+  ...(SHOW_STORE_LINK ? [{ label: SETTINGS.name, href: "/loja" }] : []),
   { label: "Contato", href: "/#contato" },
 ];
 

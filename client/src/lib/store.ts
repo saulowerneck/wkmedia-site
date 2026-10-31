@@ -31,8 +31,10 @@ const raw = data as unknown as { settings: StoreSettings; products: Product[] };
 
 export const SETTINGS = raw.settings;
 export const PRODUCTS: Product[] = raw.products.filter((p) => p.active !== false);
-/** A loja só aparece no menu quando há produtos cadastrados. */
+/** Há produtos cadastrados: habilita carrinho e links de compra. */
 export const STORE_ENABLED = PRODUCTS.length > 0;
+/** Link da loja no menu/rodapé (visível mesmo sem produtos; a página mostra "Em breve"). */
+export const SHOW_STORE_LINK = true;
 
 export const getProduct = (id: string) => PRODUCTS.find((p) => p.id === id);
 export const getProductBySlug = (slug: string) => PRODUCTS.find((p) => p.slug === slug);
