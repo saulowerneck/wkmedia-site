@@ -1,20 +1,1405 @@
 {
-  "settings": {
-    "name": "WK Shop",
-    "whatsapp": "5515996528429",
-    "installments": 6,
-    "pickup": {
-      "enabled": true,
-      "label": "Retirada em Sorocaba",
-      "note": "Combinamos local e horário pelo WhatsApp depois do pagamento."
-    },
-    "shipping": {
-      "enabled": true,
-      "label": "Envio para todo o Brasil",
-      "flatRate": 25,
-      "freeFrom": 300,
-      "note": "Prazo informado pelo WhatsApp após a confirmação do pagamento."
-    }
+ "settings": {
+  "name": "WK Shop",
+  "whatsapp": "5515996528429",
+  "installments": 6,
+  "madeToOrder": {
+   "label": "Sob encomenda",
+   "note": "Produto original sob encomenda. O prazo de chegada é informado pelo WhatsApp após a confirmação do pagamento."
   },
-  "products": []
+  "pickup": {
+   "enabled": true,
+   "label": "Retirada em Sorocaba",
+   "note": "Combinamos local e horário pelo WhatsApp depois do pagamento."
+  },
+  "shipping": {
+   "enabled": true,
+   "label": "Envio para todo o Brasil",
+   "flatRate": 25,
+   "freeFrom": 300,
+   "note": "Prazo informado pelo WhatsApp após a confirmação do pagamento."
+  }
+ },
+ "products": [
+  {
+   "id": "vs-01",
+   "slug": "bare-vanilla-fragrance-mist-250ml",
+   "name": "Bare Vanilla - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-01.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-02",
+   "slug": "bare-vanilla-fragrance-lotion-236ml",
+   "name": "Bare Vanilla - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-02.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-03",
+   "slug": "pure-seduction-bubbly-shimmer-mist-250ml",
+   "name": "Pure Seduction Bubbly - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-03.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-04",
+   "slug": "pure-seduction-bubbly-shimmer-lotion-236ml",
+   "name": "Pure Seduction Bubbly - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-04.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-05",
+   "slug": "ruby-plum-nights-fragrance-mist-250ml",
+   "name": "Ruby Plum Nights - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-05.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-06",
+   "slug": "ruby-plum-nights-fragrance-lotion-236ml",
+   "name": "Ruby Plum Nights - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-06.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-07",
+   "slug": "elixir-nocturne-orchid-shimmer-mist-250ml",
+   "name": "Elixir Nocturne Orchid - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-07.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-08",
+   "slug": "apple-aphrodisiac-shimmer-mist-250ml",
+   "name": "Apple Aphrodisiac - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-08.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-09",
+   "slug": "phantom-vanilla-shimmer-mist-250ml",
+   "name": "Phantom Vanilla - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-09.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-10",
+   "slug": "fashion-show-pink-diamond-shimmer-mist-250ml",
+   "name": "Fashion Show Pink Diamond - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-10.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-11",
+   "slug": "fashion-show-pink-diamond-shimmer-lotion-236ml",
+   "name": "Fashion Show Pink Diamond - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-11.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-12",
+   "slug": "golden-sweets-fragrance-mist-250ml",
+   "name": "Golden Sweets - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-12.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-13",
+   "slug": "golden-sweets-fragrance-lotion-236ml",
+   "name": "Golden Sweets - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-13.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-14",
+   "slug": "love-spell-whipped-fragrance-mist-250ml",
+   "name": "Love Spell Whipped - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-14.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-15",
+   "slug": "love-spell-whipped-fragrance-lotion-236ml",
+   "name": "Love Spell Whipped - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-15.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-16",
+   "slug": "pure-seduction-icon-fragrance-mist-250ml",
+   "name": "Pure Seduction Icon - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-16.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-17",
+   "slug": "pure-seduction-icon-fragrance-lotion-236ml",
+   "name": "Pure Seduction Icon - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-17.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-18",
+   "slug": "love-spell-bubbly-shimmer-mist-250ml",
+   "name": "Love Spell Bubbly - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-18.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-19",
+   "slug": "love-spell-bubbly-shimmer-lotion-236ml",
+   "name": "Love Spell Bubbly - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-19.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-20",
+   "slug": "bare-vanilla-bubbly-shimmer-mist-250ml",
+   "name": "Bare Vanilla Bubbly - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-20.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-21",
+   "slug": "bare-vanilla-bubbly-shimmer-lotion-236ml",
+   "name": "Bare Vanilla Bubbly - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-21.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-22",
+   "slug": "velvet-petals-bubbly-shimmer-mist-250ml",
+   "name": "Velvet Petals Bubbly - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-22.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-23",
+   "slug": "velvet-petals-bubbly-shimmer-lotion-236ml",
+   "name": "Velvet Petals Bubbly - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-23.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-24",
+   "slug": "fashion-show-spotlight-shimmer-mist-250ml",
+   "name": "Fashion Show Spotlight - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-24.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-25",
+   "slug": "fashion-show-spotlight-shimmer-lotion-236ml",
+   "name": "Fashion Show Spotlight - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-25.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-26",
+   "slug": "fashion-show-angel-fantasy-shimmer-mist-250ml",
+   "name": "Fashion Show Angel Fantasy - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-26.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-27",
+   "slug": "fashion-show-angel-fantasy-shimmer-lotion-236ml",
+   "name": "Fashion Show Angel Fantasy - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-27.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-28",
+   "slug": "crimson-berry-kiss-fragrance-mist-250ml",
+   "name": "Crimson Berry Kiss - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-28.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-29",
+   "slug": "crimson-berry-kiss-fragrance-lotion-236ml",
+   "name": "Crimson Berry Kiss - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-29.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-30",
+   "slug": "rich-vanilla-mystere-fragrance-mist-250ml",
+   "name": "Rich Vanilla Mystere - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-30.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-31",
+   "slug": "rich-vanilla-mystere-fragrance-lotion-236ml",
+   "name": "Rich Vanilla Mystere - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-31.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-32",
+   "slug": "blush-cherry-royale-fragrance-mist-250ml",
+   "name": "Blush Cherry Royale - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-32.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-33",
+   "slug": "blush-cherry-royale-fragrance-lotion-236ml",
+   "name": "Blush Cherry Royale - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-33.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-34",
+   "slug": "rose-silk-fragrance-mist-250ml",
+   "name": "Rose Silk - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-34.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-35",
+   "slug": "rose-silk-fragrance-lotion-236ml",
+   "name": "Rose Silk - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-35.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-36",
+   "slug": "cocoa-couture-fragrance-mist-250ml",
+   "name": "Cocoa Couture - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-36.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-37",
+   "slug": "cocoa-couture-fragrance-lotion-236ml",
+   "name": "Cocoa Couture - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-37.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-38",
+   "slug": "pure-seduction-icon-shimmer-body-oil-118ml",
+   "name": "Pure Seduction Icon - Shimmer Body Oil",
+   "brand": "Victoria's Secret",
+   "category": "Óleo Corporal",
+   "size": "118 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-38.jpg"
+   ],
+   "description": "Óleo corporal perfumado com partículas de brilho e acabamento luminoso.",
+   "details": [
+    "118 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-39",
+   "slug": "indulgent-creme-fragrance-mist-250ml",
+   "name": "Indulgent Creme - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-39.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-40",
+   "slug": "indulgent-creme-fragrance-lotion-236ml",
+   "name": "Indulgent Creme - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-40.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-41",
+   "slug": "pure-seduction-whipped-fragrance-mist-250ml",
+   "name": "Pure Seduction Whipped - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-41.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-42",
+   "slug": "velvet-petals-whipped-fragrance-lotion-236ml",
+   "name": "Velvet Petals Whipped - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-42.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-43",
+   "slug": "amber-romance-whipped-fragrance-mist-250ml",
+   "name": "Amber Romance Whipped - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-43.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-44",
+   "slug": "bare-vanilla-whipped-fragrance-mist-250ml",
+   "name": "Bare Vanilla Whipped - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-44.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-45",
+   "slug": "coconut-passion-whipped-fragrance-lotion-236ml",
+   "name": "Coconut Passion Whipped - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-45.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-46",
+   "slug": "velvet-petals-whipped-fragrance-mist-250ml",
+   "name": "Velvet Petals Whipped - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-46.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-47",
+   "slug": "pure-seduction-whipped-fragrance-lotion-236ml",
+   "name": "Pure Seduction Whipped - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-47.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-48",
+   "slug": "coconut-passion-whipped-fragrance-mist-250ml",
+   "name": "Coconut Passion Whipped - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-48.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-49",
+   "slug": "bare-vanilla-whipped-fragrance-lotion-236ml",
+   "name": "Bare Vanilla Whipped - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-49.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-50",
+   "slug": "amber-romance-whipped-fragrance-lotion-236ml",
+   "name": "Amber Romance Whipped - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-50.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-51",
+   "slug": "pure-seduction-fragrance-mist-250ml",
+   "name": "Pure Seduction - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-51.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-52",
+   "slug": "pure-seduction-fragrance-lotion-236ml",
+   "name": "Pure Seduction - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-52.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-53",
+   "slug": "pure-seduction-shimmer-mist-250ml",
+   "name": "Pure Seduction - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-53.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-54",
+   "slug": "pure-seduction-shimmer-lotion-236ml",
+   "name": "Pure Seduction - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-54.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-55",
+   "slug": "vanilla-lace-fragrance-mist-250ml",
+   "name": "Vanilla Lace - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-55.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-56",
+   "slug": "vanilla-lace-fragrance-lotion-236ml",
+   "name": "Vanilla Lace - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-56.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-57",
+   "slug": "velvet-petals-shimmer-lotion-236ml",
+   "name": "Velvet Petals - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-57.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-58",
+   "slug": "velvet-petals-shimmer-mist-250ml",
+   "name": "Velvet Petals - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-58.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-59",
+   "slug": "velvet-petals-shimmer-lotion-236ml-2",
+   "name": "Velvet Petals - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-59.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-60",
+   "slug": "love-spell-fragrance-lotion-236ml",
+   "name": "Love Spell - Fragrance Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-60.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-61",
+   "slug": "love-spell-fragrance-mist-250ml",
+   "name": "Love Spell - Fragrance Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-61.jpg"
+   ],
+   "description": "Bruma corporal perfumada, leve e perfeita para usar todos os dias.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-62",
+   "slug": "aqua-kiss-shimmer-mist-250ml",
+   "name": "Aqua Kiss - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-62.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-63",
+   "slug": "aqua-kiss-shimmer-lotion-236ml",
+   "name": "Aqua Kiss - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-63.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-64",
+   "slug": "bare-vanilla-shimmer-mist-250ml",
+   "name": "Bare Vanilla - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-64.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-65",
+   "slug": "bare-vanilla-shimmer-lotion-236ml",
+   "name": "Bare Vanilla - Shimmer Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-65.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-66",
+   "slug": "love-spell-shimmer-mist-250ml",
+   "name": "Love Spell - Shimmer Mist",
+   "brand": "Victoria's Secret",
+   "category": "Body Mist",
+   "size": "250 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-66.jpg"
+   ],
+   "description": "Bruma corporal perfumada com brilho para deixar a pele iluminada.",
+   "details": [
+    "250 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-67",
+   "slug": "lavender-cashmere-woods-creamy-body-wash-295ml",
+   "name": "Lavender Cashmere Woods - Creamy Body Wash",
+   "brand": "Victoria's Secret",
+   "category": "Sabonete Corporal",
+   "size": "295 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-67.jpg"
+   ],
+   "description": "Sabonete corporal cremoso para uma rotina perfumada e aconchegante.",
+   "details": [
+    "295 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-68",
+   "slug": "lavender-cashmere-woods-body-lotion-236ml",
+   "name": "Lavender Cashmere Woods - Body Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-68.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "vs-69",
+   "slug": "vanilla-bean-macadamia-body-lotion-236ml",
+   "name": "Vanilla Bean Macadamia - Body Lotion",
+   "brand": "Victoria's Secret",
+   "category": "Loção Corporal",
+   "size": "236 mL",
+   "price": 89,
+   "images": [
+    "/loja/vs-69.jpg"
+   ],
+   "description": "Loção corporal perfumada, ideal para hidratar e prolongar a fragrância.",
+   "details": [
+    "236 mL",
+    "Produto original Victoria's Secret"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  }
+ ]
 }

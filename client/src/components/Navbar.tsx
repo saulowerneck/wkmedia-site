@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle, ShoppingBag } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
-import { SETTINGS, SHOW_STORE_LINK, STORE_ENABLED } from "@/lib/store";
+import { useCatalog } from "@/contexts/CatalogContext";
 
 const NAV_ITEMS = [
   { label: "Início", href: "/#inicio" },
@@ -11,13 +11,14 @@ const NAV_ITEMS = [
   { label: "Portfólio", href: "/#portfolio" },
   { label: "Sobre", href: "/#sobre" },
   { label: "Blog", href: "/blog" },
-  ...(SHOW_STORE_LINK ? [{ label: SETTINGS.name, href: "/loja" }] : []),
+  { label: "WK Shop", href: "/loja" },
   { label: "Contato", href: "/#contato" },
 ];
 
 function CartButton() {
   const { count, setOpen } = useCart();
-  if (!STORE_ENABLED) return null;
+  const { products } = useCatalog();
+  if (products.length === 0) return null;
   return (
     <button onClick={() => setOpen(true)} aria-label={`Abrir carrinho (${count} itens)`} className="relative w-10 h-10 flex items-center justify-center text-white/70 hover:text-white">
       <ShoppingBag size={20} />

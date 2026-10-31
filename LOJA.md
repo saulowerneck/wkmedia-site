@@ -1,44 +1,30 @@
 # WK Shop — como operar a loja
 
-A loja fica em `/loja` e só aparece no menu/rodapé quando há produtos em `shared/store.json`.
+A loja fica em `/loja`. O catálogo (produtos, preços, fotos, frete, parcelas) é editado no **painel**, sem mexer em código.
 
-## Adicionar produtos
-Edite o array `products` em `shared/store.json` (um objeto por produto):
+## Painel (`/admin`)
+Acesse `wkmedia.com.br/admin` e entre com a senha (variável `ADMIN_PASSWORD` no Netlify).
+- **Produtos**: busca, filtro por categoria/situação, preço editável direto na lista, editar/duplicar/ocultar/excluir, novo produto.
+- **Fotos**: envie JPG/PNG/WebP no editor do produto (reduzidas automaticamente para 1200px); a primeira é a principal; dá para reordenar e remover.
+- **Ações em massa**: marque vários produtos e defina um preço, reajuste por % ou mostre/oculte.
+- **Configurações**: WhatsApp, parcelas, frete (valor fixo e frete grátis a partir de), retirada e o aviso de "sob encomenda".
+- **Salvar alterações**: nada vale para os clientes antes de clicar. Se outro aparelho salvou antes, o painel avisa e pede para recarregar.
+- **Backup / Importar backup**: baixa/restaura o catálogo em JSON.
 
-```json
-{
-  "id": "perf-001",
-  "slug": "perfume-x-100ml",
-  "name": "Perfume X 100ml",
-  "brand": "Marca X",
-  "category": "Perfumes",
-  "price": 199.9,
-  "compareAtPrice": 249.9,
-  "images": ["/loja/perf-001.jpg"],
-  "description": "Texto do produto.",
-  "details": ["100ml", "Eau de parfum"],
-  "stock": 8,
-  "active": true
-}
-```
-- `id`: único, sem espaços. `slug`: vira a URL `/loja/<slug>`.
-- `category`: as categorias do filtro saem daqui. `price` em reais; `compareAtPrice` (preço "de") é opcional.
-- `images`: arquivos em `client/public/loja/`. `stock: 0` = esgotado; `active: false` esconde o produto.
-- Frete, retirada e parcelas: bloco `settings` do mesmo arquivo.
-- Cada alteração enviada ao GitHub gera um novo deploy no Netlify.
+Os dados ficam no Netlify Blobs (`wk-shop`, fotos em `wk-shop-images`). Enquanto nada for salvo no painel, a loja usa o catálogo inicial `shared/store.json` (69 produtos Victoria's Secret, R$ 89, sob encomenda).
 
-## Pagamento (Mercado Pago — Checkout Pro)
-Variáveis no Netlify (Site configuration → Environment variables):
+## Variáveis no Netlify (Site configuration → Environment variables)
+- `ADMIN_PASSWORD` — senha do painel (obrigatória para usar `/admin`; sem ela o painel informa que não está configurado). Opcional: `ADMIN_TOKEN_SECRET`.
 - `MP_ACCESS_TOKEN` — Access Token de **produção** do Mercado Pago (APP_USR-...)
-- `CALLMEBOT_PHONE` / `CALLMEBOT_APIKEY` — já existem (aviso de pedido pago no WhatsApp)
+- `CALLMEBOT_PHONE` / `CALLMEBOT_APIKEY` — aviso de pedido pago no WhatsApp
 - `SITE_URL` — opcional (padrão https://wkmedia.com.br)
 
-No painel do Mercado Pago, a notificação (webhook) já é enviada por pedido via `notification_url`; não precisa configurar nada extra.
-Sem `MP_ACCESS_TOKEN`, o botão "Pagar online" avisa que o pagamento não está ativo e o cliente usa "Pedir pelo WhatsApp".
+## Sob encomenda x estoque
+Produto "sob encomenda" não usa estoque (limite de 20 por pedido); o prazo é o texto em Configurações. Produto com estoque: campo `stock` é manual e não baixa sozinho após a venda; `0` = esgotado.
 
 ## Segurança
-Preços, frete e estoque são sempre recalculados no servidor (`netlify/functions/create-checkout.js`) a partir de `shared/store.json`; valores vindos do navegador são ignorados. O aviso de pedido pago (`mp-webhook.js`) só dispara depois de consultar o pagamento na API do Mercado Pago.
+Preços, frete e estoque são sempre recalculados no servidor (`create-checkout.js`) a partir do catálogo salvo; valores do navegador são ignorados. As rotas do painel exigem token assinado (12 h). O aviso de pedido pago (`mp-webhook.js`) só dispara depois de consultar o pagamento na API do Mercado Pago.
 
 ## Limitações atuais
-- O estoque é manual: o campo `stock` não baixa sozinho após a venda.
 - Frete é valor fixo, com frete grátis acima de um valor; não calcula por CEP/Correios.
+- O Mercado Pago está usando a API "Preferences"; migrar para "Orders" no futuro.

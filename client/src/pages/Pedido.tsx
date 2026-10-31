@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useCart } from "@/contexts/CartContext";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { SETTINGS } from "@/lib/store";
+import { useCatalog } from "@/contexts/CatalogContext";
 
 const CONTENT = {
   sucesso: { icon: CheckCircle2, color: "text-[#25D366]", title: "Pagamento aprovado!", text: "Recebemos seu pedido. Em instantes entraremos em contato pelo WhatsApp para combinar a entrega ou retirada." },
@@ -20,7 +20,8 @@ export default function Pedido() {
   const c = CONTENT[key];
   const Icon = c.icon;
   const { clear } = useCart();
-  usePageMeta(`${c.title} | ${SETTINGS.name}`);
+  const { settings } = useCatalog();
+  usePageMeta(`${c.title} | ${settings.name}`);
 
   useEffect(() => {
     if (key === "sucesso" || key === "pendente") clear();
@@ -42,7 +43,7 @@ export default function Pedido() {
           <p className="text-white/50 leading-relaxed mb-10">{c.text}</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             {key === "falha" ? <Link href="/checkout" className="btn-electric justify-center">Tentar novamente</Link> : <Link href="/loja" className="btn-electric justify-center">Continuar comprando</Link>}
-            <a href={`https://wa.me/${SETTINGS.whatsapp}`} target="_blank" rel="noopener noreferrer" className="border border-white/15 hover:border-[#25D366] hover:text-[#25D366] text-white/70 px-6 py-4 text-xs tracking-[0.15em] uppercase transition-colors" style={{ fontFamily: "var(--font-mono)" }}>
+            <a href={`https://wa.me/${settings.whatsapp}`} target="_blank" rel="noopener noreferrer" className="border border-white/15 hover:border-[#25D366] hover:text-[#25D366] text-white/70 px-6 py-4 text-xs tracking-[0.15em] uppercase transition-colors" style={{ fontFamily: "var(--font-mono)" }}>
               Falar no WhatsApp
             </a>
           </div>

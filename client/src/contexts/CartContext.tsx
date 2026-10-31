@@ -1,6 +1,7 @@
 /* WK Shop — carrinho (persistido no navegador) */
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import { getProduct, type OrderLine } from "@/lib/store";
+import { maxQty, type OrderLine } from "@/lib/store";
+import { useCatalog } from "@/contexts/CatalogContext";
 
 type Line = { id: string; qty: number };
 const KEY = "wk-shop-cart-v1";
@@ -29,6 +30,7 @@ function load(): Line[] {
 }
 
 export function CartProvider({ children }: { children: ReactNode }) {
+  const { getProduct } = useCatalog();
   const [raw, setRaw] = useState<Line[]>(load);
   const [open, setOpen] = useState(false);
 
@@ -40,11 +42,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   }, [raw]);
 
-  const clampQty = (id: string, qty: number) => {
-    const p = getProduct(id);
-    if (!p) return 0;
-    return Math.max(0, Math.min(Math.floor(qty), p.stock));
-  };
+  const clampQty = useCallback(
+    (id: string, qty: number) => {
+      const p = getProduct(id);
+      if (!p) return 0;
+      return Math.max(0, Math.min(Math.floor(qty), maxQty(p)));
+    },
+    [getProduct],
+  );
 
   const add = useCallback((id: string, qty = 1, openDrawer = true) => {
     setRaw((cur) => {
@@ -54,14 +59,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
       return found ? cur.map((l) => (l.id === id ? { ...l, qty: next } : l)) : [...cur, { id, qty: next }];
     });
     if (openDrawer) setOpen(true);
-  }, []);
+  }, [clampQty]);
 
   const setQty = useCallback((id: string, qty: number) => {
     setRaw((cur) => {
       const next = clampQty(id, qty);
       return next === 0 ? cur.filter((l) => l.id !== id) : cur.map((l) => (l.id === id ? { ...l, qty: next } : l));
     });
-  }, []);
+  }, [clampQty]);
 
   const remove = useCallback((id: string) => setRaw((cur) => cur.filter((l) => l.id !== id)), []);
   const clear = useCallback(() => setRaw([]), []);
@@ -83,7 +88,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       remove,
       clear,
     };
-  }, [raw, open, add, setQty, remove, clear]);
+  }, [raw, open, add, setQty, remove, clear, clampQty, getProduct]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

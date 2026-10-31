@@ -6,14 +6,15 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProductCard from "@/components/shop/ProductCard";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { PRODUCTS, SETTINGS } from "@/lib/store";
+import { useCatalog } from "@/contexts/CatalogContext";
 
 export default function Loja() {
-  usePageMeta(`${SETTINGS.name} | Loja online WK Media`, "Perfumes, cosméticos, eletrônicos e artigos esportivos com pagamento online seguro. Retirada em Sorocaba ou envio para todo o Brasil.");
+  const { settings, products: PRODUCTS, ready } = useCatalog();
+  usePageMeta(`${settings.name} | Loja online WK Media`, "Perfumes, cosméticos, eletrônicos e artigos esportivos com pagamento online seguro. Retirada em Sorocaba ou envio para todo o Brasil.");
   const [cat, setCat] = useState("Todos");
   const [q, setQ] = useState("");
 
-  const categories = useMemo(() => ["Todos", ...Array.from(new Set(PRODUCTS.map((p) => p.category)))], []);
+  const categories = useMemo(() => ["Todos", ...Array.from(new Set(PRODUCTS.map((p) => p.category)))], [PRODUCTS]);
   const list = useMemo(() => {
     const term = q.trim().toLowerCase();
     return PRODUCTS.filter(
@@ -21,7 +22,7 @@ export default function Loja() {
         (cat === "Todos" || p.category === cat) &&
         (!term || `${p.name} ${p.brand ?? ""} ${p.category}`.toLowerCase().includes(term)),
     );
-  }, [cat, q]);
+  }, [cat, q, PRODUCTS]);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -39,11 +40,17 @@ export default function Loja() {
             Produtos selecionados com pagamento seguro. Retire em Sorocaba ou receba em casa.
           </p>
 
-          {PRODUCTS.length === 0 ? (
+          {!ready ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-white/5" aria-busy="true">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <div key={i} className="bg-black aspect-[3/4] animate-pulse" />
+              ))}
+            </div>
+          ) : PRODUCTS.length === 0 ? (
             <div className="border border-white/10 p-12 text-center">
               <p className="text-2xl font-bold mb-2" style={{ fontFamily: "var(--font-display)" }}>Em breve</p>
               <p className="text-white/40 mb-6">Estamos preparando o catálogo.</p>
-              <a href={`https://wa.me/${SETTINGS.whatsapp}`} target="_blank" rel="noopener noreferrer" className="btn-electric">
+              <a href={`https://wa.me/${settings.whatsapp}`} target="_blank" rel="noopener noreferrer" className="btn-electric">
                 Falar no WhatsApp
               </a>
             </div>

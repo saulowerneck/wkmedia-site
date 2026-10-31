@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { ShoppingBag } from "lucide-react";
-import { brl, type Product } from "@/lib/store";
+import { brl, isSoldOut, type Product } from "@/lib/store";
 import { useCart } from "@/contexts/CartContext";
 
 export function ProductImage({ product, className = "" }: { product: Product; className?: string }) {
@@ -16,7 +16,7 @@ export function ProductImage({ product, className = "" }: { product: Product; cl
 
 export default function ProductCard({ product }: { product: Product }) {
   const { add } = useCart();
-  const soldOut = product.stock <= 0;
+  const soldOut = isSoldOut(product);
   const discount =
     product.compareAtPrice && product.compareAtPrice > product.price
       ? Math.round((1 - product.price / product.compareAtPrice) * 100)
@@ -48,6 +48,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <Link href={`/loja/${product.slug}`} className="text-white font-medium leading-snug hover:text-[var(--color-electric)] transition-colors">
           {product.name}
         </Link>
+        {product.size && <span className="text-white/35 text-xs mt-1" style={{ fontFamily: "var(--font-mono)" }}>{product.size}</span>}
         <div className="mt-2 mb-4">
           {product.compareAtPrice && product.compareAtPrice > product.price && (
             <span className="text-white/30 text-sm line-through mr-2">{brl(product.compareAtPrice)}</span>

@@ -8,11 +8,13 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { ProductImage } from "@/components/shop/ProductCard";
 import { useCart } from "@/contexts/CartContext";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { brl, getProductBySlug, SETTINGS } from "@/lib/store";
+import { brl, isSoldOut, maxQty } from "@/lib/store";
+import { useCatalog } from "@/contexts/CatalogContext";
 import NotFound from "./NotFound";
 
 export default function Produto() {
   const { slug } = useParams<{ slug: string }>();
+  const { settings, getProductBySlug, ready } = useCatalog();
   const product = getProductBySlug(slug || "");
   const { add } = useCart();
   const [, navigate] = useLocation();
@@ -20,7 +22,7 @@ export default function Produto() {
   const [img, setImg] = useState(0);
 
   usePageMeta(
-    product ? `${product.name} | ${SETTINGS.name}` : SETTINGS.name,
+    product ? `${product.name} | ${settings.name}` : settings.name,
     product ? product.description.slice(0, 155) : undefined,
   );
 
@@ -56,8 +58,10 @@ export default function Produto() {
     };
   }, [product]);
 
+  if (!ready && !product) return <div className="min-h-screen bg-black" aria-busy="true" />;
   if (!product) return <NotFound />;
-  const soldOut = product.stock <= 0;
+  const soldOut = isSoldOut(product);
+  const limit = maxQty(product);
   const hasDiscount = product.compareAtPrice && product.compareAtPrice > product.price;
 
   return (
@@ -99,17 +103,25 @@ export default function Produto() {
               <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-4" style={{ fontFamily: "var(--font-display)" }}>
                 {product.name}
               </h1>
+              {product.size && (
+                <p className="text-white/40 text-sm mb-3" style={{ fontFamily: "var(--font-mono)" }}>{product.size}</p>
+              )}
               <div className="mb-1">
                 {hasDiscount && <span className="text-white/30 line-through mr-3">{brl(product.compareAtPrice!)}</span>}
                 <span className="text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>{brl(product.price)}</span>
               </div>
-              {SETTINGS.installments > 1 && (
+              {settings.installments > 1 && (
                 <p className="text-white/40 text-sm mb-6">
-                  ou até {SETTINGS.installments}x de {brl(product.price / SETTINGS.installments)} no cartão
+                  ou até {settings.installments}x de {brl(product.price / settings.installments)} no cartão
                 </p>
               )}
 
               <p className="text-white/60 leading-relaxed mb-6 whitespace-pre-line">{product.description}</p>
+              {product.madeToOrder && (
+                <p className="border border-[var(--color-electric)]/40 bg-[var(--color-electric-subtle)] p-4 text-sm text-white/70 mb-6">
+                  <strong className="text-white">{settings.madeToOrder.label}.</strong> {settings.madeToOrder.note}
+                </p>
+              )}
 
               {product.details && product.details.length > 0 && (
                 <ul className="space-y-2 mb-8">
@@ -125,7 +137,7 @@ export default function Produto() {
               {soldOut ? (
                 <p className="border border-white/10 p-4 text-white/60">
                   Produto esgotado.{" "}
-                  <a href={`https://wa.me/${SETTINGS.whatsapp}?text=${encodeURIComponent(`Olá! Quero saber quando o produto "${product.name}" volta ao estoque.`)}`} target="_blank" rel="noopener noreferrer" className="text-[var(--color-electric)] underline">
+                  <a href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(`Olá! Quero saber quando o produto "${product.name}" volta ao estoque.`)}`} target="_blank" rel="noopener noreferrer" className="text-[var(--color-electric)] underline">
                     Avise-me pelo WhatsApp
                   </a>
                 </p>
@@ -137,11 +149,11 @@ export default function Produto() {
                         <Minus size={16} />
                       </button>
                       <span className="w-10 text-center">{qty}</span>
-                      <button onClick={() => setQty((q) => Math.min(product.stock, q + 1))} aria-label="Aumentar" className="w-11 h-12 flex items-center justify-center text-white/60 hover:text-white">
+                      <button onClick={() => setQty((q) => Math.min(limit, q + 1))} aria-label="Aumentar" className="w-11 h-12 flex items-center justify-center text-white/60 hover:text-white">
                         <Plus size={16} />
                       </button>
                     </div>
-                    {product.stock <= 5 && <span className="text-xs text-amber-400">Restam {product.stock}</span>}
+                    {!product.madeToOrder && product.stock <= 5 && <span className="text-xs text-amber-400">Restam {product.stock}</span>}
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <button onClick={() => add(product.id, qty)} className="btn-electric flex-1 justify-center">
@@ -163,7 +175,7 @@ export default function Produto() {
 
               <div className="mt-10 grid gap-4 text-sm text-white/40">
                 <p className="flex gap-3"><ShieldCheck size={18} className="text-[var(--color-electric)] shrink-0" /> Pagamento seguro por Pix, cartão ou boleto (Mercado Pago).</p>
-                <p className="flex gap-3"><Truck size={18} className="text-[var(--color-electric)] shrink-0" /> {SETTINGS.pickup.enabled ? "Retirada em Sorocaba ou " : ""}envio para todo o Brasil.</p>
+                <p className="flex gap-3"><Truck size={18} className="text-[var(--color-electric)] shrink-0" /> {settings.pickup.enabled ? "Retirada em Sorocaba ou " : ""}envio para todo o Brasil.</p>
                 <p className="flex gap-3"><MessageCircle size={18} className="text-[var(--color-electric)] shrink-0" /> Dúvidas? Atendimento direto pelo WhatsApp.</p>
               </div>
             </div>

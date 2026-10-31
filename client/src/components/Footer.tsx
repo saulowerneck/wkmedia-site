@@ -1,5 +1,5 @@
 /* Brutalist Luxury — Footer: premium with links, social, contact */
-import { SETTINGS, SHOW_STORE_LINK, STORE_ENABLED } from "@/lib/store";
+import { useCatalog } from "@/contexts/CatalogContext";
 import { Instagram, Facebook, Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 
 const QUICK_LINKS = [
@@ -8,7 +8,7 @@ const QUICK_LINKS = [
   { label: "Portfólio", href: "/#portfolio" },
   { label: "Sobre", href: "/#sobre" },
   { label: "Blog", href: "/blog" },
-  ...(SHOW_STORE_LINK ? [{ label: SETTINGS.name, href: "/loja" }] : []),
+  { label: "WK Shop", href: "/loja" },
   { label: "Contato", href: "/#contato" },
 ];
 
@@ -24,6 +24,7 @@ const SERVICES_LINKS = [
 ];
 
 export default function Footer() {
+  const { products } = useCatalog();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -128,7 +129,7 @@ export default function Footer() {
             <a href="/privacidade" className="text-white/20 text-xs hover:text-[var(--color-electric)] transition-colors" style={{ fontFamily: "var(--font-mono)" }}>
               Política de Privacidade
             </a>
-            {STORE_ENABLED && (
+            {products.length > 0 && (
               <a href="/trocas-e-devolucoes" className="text-white/20 text-xs hover:text-[var(--color-electric)] transition-colors" style={{ fontFamily: "var(--font-mono)" }}>
                 Trocas e Devoluções
               </a>

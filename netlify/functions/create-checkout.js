@@ -1,34 +1,30 @@
 // WK Shop — cria a preferência de pagamento no Mercado Pago (Checkout Pro).
-// Os preços vêm SEMPRE de shared/store.json (nunca do navegador).
+// Preços, frete e estoque vêm SEMPRE do catálogo no servidor (painel/Blobs ou seed),
+// nunca do navegador.
 //
 // Variáveis de ambiente (Netlify):
 //   MP_ACCESS_TOKEN  -> Access Token de produção do Mercado Pago (APP_USR-...)
 //   SITE_URL         -> opcional, padrão https://wkmedia.com.br
-import store from "../../shared/store.json";
-
-const json = (statusCode, body) => ({
-  statusCode,
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(body),
-});
+import { loadCatalog, json } from "../lib/catalog.js";
 
 const digits = (s) => String(s || "").replace(/\D/g, "");
 const money = (n) => Math.round(n * 100) / 100;
+const MAX_MADE_TO_ORDER_QTY = 20;
 
-export const handler = async (event) => {
-  if (event.httpMethod !== "POST") return json(405, { error: "method_not_allowed" });
+export default async (req) => {
+  if (req.method !== "POST") return json(405, { error: "method_not_allowed" });
 
   const token = process.env.MP_ACCESS_TOKEN;
   if (!token) return json(503, { error: "not_configured" });
 
   let input;
   try {
-    input = JSON.parse(event.body || "{}");
+    input = await req.json();
   } catch {
     return json(400, { error: "bad_request", message: "Pedido inválido." });
   }
 
-  const { settings, products } = store;
+  const { settings, products } = await loadCatalog();
   const items = Array.isArray(input.items) ? input.items : [];
   const customer = input.customer || {};
   const delivery = input.delivery || {};
@@ -39,7 +35,8 @@ export const handler = async (event) => {
     const product = products.find((p) => p.id === it.id && p.active !== false);
     const qty = Math.floor(Number(it.qty));
     if (!product || !(qty > 0)) return json(400, { error: "invalid_item", message: "Há um item inválido no carrinho." });
-    if (qty > product.stock) return json(409, { error: "no_stock", message: `Estoque insuficiente para "${product.name}".` });
+    const limit = product.madeToOrder ? MAX_MADE_TO_ORDER_QTY : product.stock;
+    if (qty > limit) return json(409, { error: "no_stock", message: `Quantidade indisponível para "${product.name}".` });
     lines.push({ product, qty });
   }
   if (lines.length === 0) return json(400, { error: "empty_cart", message: "Carrinho vazio." });
@@ -54,8 +51,8 @@ export const handler = async (event) => {
   // 3) entrega e frete (calculado no servidor)
   const subtotal = money(lines.reduce((n, l) => n + l.product.price * l.qty, 0));
   const method = delivery.method === "pickup" ? "pickup" : "ship";
-  if (method === "pickup" && !settings.pickup.enabled) return json(400, { error: "invalid_delivery" });
-  if (method === "ship" && !settings.shipping.enabled) return json(400, { error: "invalid_delivery" });
+  if (method === "pickup" && !settings.pickup.enabled) return json(400, { error: "invalid_delivery", message: "Retirada indisponível." });
+  if (method === "ship" && !settings.shipping.enabled) return json(400, { error: "invalid_delivery", message: "Envio indisponível." });
 
   let shipping = 0;
   let addressText = "";
@@ -71,10 +68,11 @@ export const handler = async (event) => {
   // 4) monta a preferência
   const orderId = `WK-${Date.now().toString(36).toUpperCase()}${Math.random().toString(36).slice(2, 5).toUpperCase()}`;
   const site = (process.env.SITE_URL || "https://wkmedia.com.br").replace(/\/$/, "");
+  const title = (p) => (p.size ? `${p.name} (${p.size})` : p.name).slice(0, 250);
 
   const mpItems = lines.map((l) => ({
     id: l.product.id,
-    title: l.product.name.slice(0, 250),
+    title: title(l.product),
     quantity: l.qty,
     unit_price: money(l.product.price),
     currency_id: "BRL",
@@ -108,7 +106,7 @@ export const handler = async (event) => {
       customer_phone: phone,
       delivery_method: method,
       delivery_address: addressText,
-      items_summary: lines.map((l) => `${l.qty}x ${l.product.name}`).join("; "),
+      items_summary: lines.map((l) => `${l.qty}x ${title(l.product)}${l.product.madeToOrder ? " [sob encomenda]" : ""}`).join("; "),
       shipping,
       subtotal,
     },

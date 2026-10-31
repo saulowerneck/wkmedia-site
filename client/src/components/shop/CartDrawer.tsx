@@ -2,12 +2,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "wouter";
 import { Minus, Plus, X, ShoppingBag } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
-import { brl, SETTINGS } from "@/lib/store";
+import { brl, maxQty } from "@/lib/store";
+import { useCatalog } from "@/contexts/CatalogContext";
 import { ProductImage } from "./ProductCard";
 
 export default function CartDrawer() {
   const { open, setOpen, lines, subtotal, setQty, remove } = useCart();
-  const free = SETTINGS.shipping.freeFrom;
+  const { settings } = useCatalog();
+  const free = settings.shipping.freeFrom;
 
   return (
     <AnimatePresence>
@@ -56,7 +58,7 @@ export default function CartDrawer() {
                         <ProductImage product={product} />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-white text-sm leading-snug">{product.name}</p>
+                        <p className="text-white text-sm leading-snug">{product.name}{product.size ? <span className="text-white/35"> · {product.size}</span> : null}</p>
                         <p className="text-white/50 text-sm mt-1">{brl(product.price)}</p>
                         <div className="flex items-center gap-3 mt-3">
                           <div className="flex items-center border border-white/15">
@@ -66,7 +68,7 @@ export default function CartDrawer() {
                             <span className="w-8 text-center text-sm text-white">{qty}</span>
                             <button
                               onClick={() => setQty(product.id, qty + 1)}
-                              disabled={qty >= product.stock}
+                              disabled={qty >= maxQty(product)}
                               aria-label="Aumentar"
                               className="w-8 h-8 flex items-center justify-center text-white/60 hover:text-white disabled:opacity-30"
                             >
@@ -87,7 +89,7 @@ export default function CartDrawer() {
                     <span className="text-white/60">Subtotal</span>
                     <span className="text-xl font-bold" style={{ fontFamily: "var(--font-display)" }}>{brl(subtotal)}</span>
                   </div>
-                  {SETTINGS.shipping.enabled && free > 0 && (
+                  {settings.shipping.enabled && free > 0 && (
                     <p className="text-xs text-white/40">
                       {subtotal >= free
                         ? "Você ganhou frete grátis no envio."

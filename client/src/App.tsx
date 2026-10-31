@@ -10,6 +10,8 @@ import Checkout from "@/pages/Checkout";
 import Pedido from "@/pages/Pedido";
 import Trocas from "@/pages/Trocas";
 import { CartProvider } from "./contexts/CartContext";
+import { CatalogProvider } from "./contexts/CatalogContext";
+import Admin from "@/pages/Admin";
 import CartDrawer from "./components/shop/CartDrawer";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -28,6 +30,7 @@ function Router() {
       <Route path={"/checkout"} component={Checkout} />
       <Route path={"/pedido/:status"} component={Pedido} />
       <Route path={"/trocas-e-devolucoes"} component={Trocas} />
+      <Route path={"/admin"} component={Admin} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -39,11 +42,13 @@ function App() {
     <ErrorBoundary>
       <ThemeProvider defaultTheme="dark">
         <TooltipProvider>
-          <CartProvider>
-            <Toaster />
-            <Router />
-            <CartDrawer />
-          </CartProvider>
+          <CatalogProvider>
+            <CartProvider>
+              <Toaster />
+              <Router />
+              <CartDrawer />
+            </CartProvider>
+          </CatalogProvider>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

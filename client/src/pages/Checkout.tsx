@@ -8,7 +8,8 @@ import Footer from "@/components/Footer";
 import { ProductImage } from "@/components/shop/ProductCard";
 import { useCart } from "@/contexts/CartContext";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { brl, buildWhatsAppMessage, SETTINGS, shippingCost, type DeliveryMethod } from "@/lib/store";
+import { brl, buildWhatsAppMessage, maxQty, shippingCost, type DeliveryMethod } from "@/lib/store";
+import { useCatalog } from "@/contexts/CatalogContext";
 
 const onlyDigits = (s: string) => s.replace(/\D/g, "");
 const field =
@@ -16,10 +17,11 @@ const field =
 const label = "block text-xs text-white/50 mb-1.5 tracking-wide";
 
 export default function Checkout() {
-  usePageMeta(`Finalizar compra | ${SETTINGS.name}`);
+  const { settings } = useCatalog();
+  usePageMeta(`Finalizar compra | ${settings.name}`);
   const { lines, subtotal, setQty, remove } = useCart();
-  const canShip = SETTINGS.shipping.enabled;
-  const canPickup = SETTINGS.pickup.enabled;
+  const canShip = settings.shipping.enabled;
+  const canPickup = settings.pickup.enabled;
   const [method, setMethod] = useState<DeliveryMethod>(canShip ? "ship" : "pickup");
   const [busy, setBusy] = useState(false);
   const [form, setForm] = useState({
@@ -27,7 +29,7 @@ export default function Checkout() {
   });
   const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement>) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const shipping = shippingCost(subtotal, method);
+  const shipping = shippingCost(settings, subtotal, method);
   const total = subtotal + shipping;
 
   async function lookupCep(value: string) {
@@ -97,12 +99,12 @@ export default function Checkout() {
   function orderViaWhatsApp() {
     const err = validate();
     if (err) return toast.error(err);
-    const text = buildWhatsAppMessage({
+    const text = buildWhatsAppMessage(settings, {
       lines, subtotal, shipping, method,
       customer: { name: form.name.trim(), email: form.email.trim(), phone: form.phone },
       address: method === "ship" ? addressText() : undefined,
     });
-    window.open(`https://wa.me/${SETTINGS.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    window.open(`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
   }
 
   return (
@@ -145,18 +147,18 @@ export default function Checkout() {
                   <div className="grid sm:grid-cols-2 gap-3 mb-6">
                     {canShip && (
                       <button type="button" onClick={() => setMethod("ship")} className={`text-left p-4 border transition-colors ${method === "ship" ? "border-[var(--color-electric)]" : "border-white/10 hover:border-white/30"}`}>
-                        <p className="font-medium">{SETTINGS.shipping.label}</p>
-                        <p className="text-white/40 text-sm mt-1">{subtotal >= SETTINGS.shipping.freeFrom && SETTINGS.shipping.freeFrom > 0 ? "Frete grátis" : brl(SETTINGS.shipping.flatRate)}</p>
+                        <p className="font-medium">{settings.shipping.label}</p>
+                        <p className="text-white/40 text-sm mt-1">{subtotal >= settings.shipping.freeFrom && settings.shipping.freeFrom > 0 ? "Frete grátis" : brl(settings.shipping.flatRate)}</p>
                       </button>
                     )}
                     {canPickup && (
                       <button type="button" onClick={() => setMethod("pickup")} className={`text-left p-4 border transition-colors ${method === "pickup" ? "border-[var(--color-electric)]" : "border-white/10 hover:border-white/30"}`}>
-                        <p className="font-medium">{SETTINGS.pickup.label}</p>
+                        <p className="font-medium">{settings.pickup.label}</p>
                         <p className="text-white/40 text-sm mt-1">Grátis</p>
                       </button>
                     )}
                   </div>
-                  <p className="text-white/40 text-sm mb-5">{method === "ship" ? SETTINGS.shipping.note : SETTINGS.pickup.note}</p>
+                  <p className="text-white/40 text-sm mb-5">{method === "ship" ? settings.shipping.note : settings.pickup.note}</p>
 
                   {method === "ship" && (
                     <div className="grid sm:grid-cols-6 gap-4">
@@ -200,11 +202,11 @@ export default function Checkout() {
                     <li key={product.id} className="flex gap-3 py-4">
                       <div className="w-14 h-14 bg-[#0A0A0A] shrink-0 overflow-hidden"><ProductImage product={product} /></div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm leading-snug">{product.name}</p>
+                        <p className="text-sm leading-snug">{product.name}{product.size ? <span className="text-white/35"> · {product.size}</span> : null}</p>
                         <div className="flex items-center gap-2 mt-1.5 text-xs text-white/40">
                           <button onClick={() => setQty(product.id, qty - 1)} aria-label="Diminuir" className="w-6 h-6 border border-white/15 hover:text-white">−</button>
                           <span className="w-4 text-center text-white">{qty}</span>
-                          <button onClick={() => setQty(product.id, qty + 1)} disabled={qty >= product.stock} aria-label="Aumentar" className="w-6 h-6 border border-white/15 hover:text-white disabled:opacity-30">+</button>
+                          <button onClick={() => setQty(product.id, qty + 1)} disabled={qty >= maxQty(product)} aria-label="Aumentar" className="w-6 h-6 border border-white/15 hover:text-white disabled:opacity-30">+</button>
                           <button onClick={() => remove(product.id)} className="ml-2 underline hover:text-red-400">remover</button>
                         </div>
                       </div>
@@ -212,6 +214,11 @@ export default function Checkout() {
                     </li>
                   ))}
                 </ul>
+                {lines.some((l) => l.product.madeToOrder) && (
+                  <p className="text-xs text-white/50 border border-white/10 p-3 mb-4">
+                    <strong className="text-white/80">{settings.madeToOrder.label}.</strong> {settings.madeToOrder.note}
+                  </p>
+                )}
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between text-white/60"><dt>Subtotal</dt><dd>{brl(subtotal)}</dd></div>
                   <div className="flex justify-between text-white/60"><dt>Entrega</dt><dd>{shipping === 0 ? "Grátis" : brl(shipping)}</dd></div>
@@ -221,7 +228,7 @@ export default function Checkout() {
                 <button onClick={payOnline} disabled={busy} className="btn-electric w-full justify-center mt-6 disabled:opacity-60">
                   <Lock size={14} /> {busy ? "Abrindo pagamento..." : "Pagar online"}
                 </button>
-                <p className="text-[11px] text-white/30 text-center mt-2">Pix, cartão (até {SETTINGS.installments}x) ou boleto · Mercado Pago</p>
+                <p className="text-[11px] text-white/30 text-center mt-2">Pix, cartão (até {settings.installments}x) ou boleto · Mercado Pago</p>
                 <button onClick={orderViaWhatsApp} className="w-full mt-4 border border-white/15 hover:border-[#25D366] hover:text-[#25D366] text-white/70 py-3.5 text-xs tracking-[0.15em] uppercase transition-colors flex items-center justify-center gap-2" style={{ fontFamily: "var(--font-mono)" }}>
                   <MessageCircle size={14} /> Pedir pelo WhatsApp
                 </button>
