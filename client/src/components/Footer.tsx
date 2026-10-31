@@ -1,4 +1,5 @@
 /* Brutalist Luxury — Footer: premium with links, social, contact */
+import { SETTINGS, STORE_ENABLED } from "@/lib/store";
 import { Instagram, Facebook, Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 
 const QUICK_LINKS = [
@@ -7,6 +8,7 @@ const QUICK_LINKS = [
   { label: "Portfólio", href: "/#portfolio" },
   { label: "Sobre", href: "/#sobre" },
   { label: "Blog", href: "/blog" },
+  ...(STORE_ENABLED ? [{ label: SETTINGS.name, href: "/loja" }] : []),
   { label: "Contato", href: "/#contato" },
 ];
 
@@ -126,6 +128,11 @@ export default function Footer() {
             <a href="/privacidade" className="text-white/20 text-xs hover:text-[var(--color-electric)] transition-colors" style={{ fontFamily: "var(--font-mono)" }}>
               Política de Privacidade
             </a>
+            {STORE_ENABLED && (
+              <a href="/trocas-e-devolucoes" className="text-white/20 text-xs hover:text-[var(--color-electric)] transition-colors" style={{ fontFamily: "var(--font-mono)" }}>
+                Trocas e Devoluções
+              </a>
+            )}
           </div>
           <button
             onClick={scrollToTop}

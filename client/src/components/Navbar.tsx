@@ -1,7 +1,9 @@
 /* Brutalist Luxury — Navbar: sharp, minimal, electric blue CTA */
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, ShoppingBag } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { SETTINGS, STORE_ENABLED } from "@/lib/store";
 
 const NAV_ITEMS = [
   { label: "Início", href: "/#inicio" },
@@ -9,8 +11,24 @@ const NAV_ITEMS = [
   { label: "Portfólio", href: "/#portfolio" },
   { label: "Sobre", href: "/#sobre" },
   { label: "Blog", href: "/blog" },
+  ...(STORE_ENABLED ? [{ label: SETTINGS.name, href: "/loja" }] : []),
   { label: "Contato", href: "/#contato" },
 ];
+
+function CartButton() {
+  const { count, setOpen } = useCart();
+  if (!STORE_ENABLED) return null;
+  return (
+    <button onClick={() => setOpen(true)} aria-label={`Abrir carrinho (${count} itens)`} className="relative w-10 h-10 flex items-center justify-center text-white/70 hover:text-white">
+      <ShoppingBag size={20} />
+      {count > 0 && (
+        <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 bg-[var(--color-electric)] text-white text-[10px] flex items-center justify-center" style={{ fontFamily: "var(--font-mono)" }}>
+          {count}
+        </span>
+      )}
+    </button>
+  );
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -64,6 +82,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
+            <CartButton />
             <a
               href="https://wa.me/5515996528429"
               target="_blank"
@@ -79,13 +98,16 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden relative z-10 w-10 h-10 flex items-center justify-center text-white"
-            aria-label="Menu"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="lg:hidden relative z-50 flex items-center gap-1">
+            <CartButton />
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="w-10 h-10 flex items-center justify-center text-white"
+              aria-label="Menu"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </motion.header>
 

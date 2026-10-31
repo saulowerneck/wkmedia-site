@@ -1,0 +1,20 @@
+{
+  "settings": {
+    "name": "WK Shop",
+    "whatsapp": "5515996528429",
+    "installments": 6,
+    "pickup": {
+      "enabled": true,
+      "label": "Retirada em Sorocaba",
+      "note": "Combinamos local e horário pelo WhatsApp depois do pagamento."
+    },
+    "shipping": {
+      "enabled": true,
+      "label": "Envio para todo o Brasil",
+      "flatRate": 25,
+      "freeFrom": 300,
+      "note": "Prazo informado pelo WhatsApp após a confirmação do pagamento."
+    }
+  },
+  "products": []
+}
