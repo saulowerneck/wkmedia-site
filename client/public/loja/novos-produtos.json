@@ -22,7 +22,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-se3-44-starlight",
@@ -46,7 +46,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-s11-46-rosegold",
@@ -70,7 +70,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-s11-46-silver",
@@ -94,7 +94,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-s11-46-grey",
@@ -118,7 +118,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-s11-46-jet",
@@ -142,7 +142,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-s11c-46-silver",
@@ -166,7 +166,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-s11c-46-grey",
@@ -190,7 +190,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-s12-42-black",
@@ -214,7 +214,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-s12-42-gold",
@@ -238,7 +238,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-s12-46-black",
@@ -262,7 +262,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   },
   {
    "id": "aw-u3-49-natural",
@@ -286,7 +286,7 @@
    ],
    "madeToOrder": true,
    "stock": 0,
-   "active": false
+   "active": true
   }
  ]
 }

@@ -530,9 +530,9 @@ function Panel({ token, onLogout }: { token: string; onLogout: () => void }) {
       const have = new Set(products.map((p) => p.id));
       const fresh = incoming.filter((p) => !have.has(p.id));
       if (!fresh.length) return toast.info("Nenhum produto novo: todos já estão no catálogo.");
-      if (!confirm(`Adicionar ${fresh.length} produto(s) pronto(s) como OCULTOS? (Você ainda precisa clicar em Salvar.)`)) return;
+      if (!confirm(`Adicionar ${fresh.length} produto(s) pronto(s) como VISÍVEIS? (Você ainda precisa clicar em Salvar.)`)) return;
       setProducts((cur) => [...cur, ...fresh]);
-      toast.success(`${fresh.length} produto(s) adicionados (ocultos). Revise e clique em Salvar.`);
+      toast.success(`${fresh.length} produto(s) adicionados (visíveis). Revise e clique em Salvar.`);
     } catch {
       toast.error("Não consegui carregar os produtos prontos.");
     }
