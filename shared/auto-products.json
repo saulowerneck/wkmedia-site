@@ -1,0 +1,292 @@
+{
+ "products": [
+  {
+   "id": "aw-se3-44-midnight",
+   "slug": "apple-watch-se-3-44-mm-gps-meia-noite",
+   "name": "Apple Watch SE 3 44 mm GPS - Meia-noite",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "44 mm",
+   "price": 2219.9,
+   "images": [
+    "/loja/aw-se3-44-midnight.jpg"
+   ],
+   "description": "Apple Watch SE 3 de 44 mm, GPS, com caixa de alumínio na cor meia-noite e pulseira esportiva meia-noite. Produto original Apple, sob encomenda.",
+   "details": [
+    "44 mm",
+    "GPS",
+    "Caixa: Alumínio",
+    "Cor: Meia-noite",
+    "Pulseira esportiva Meia-noite",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-se3-44-starlight",
+   "slug": "apple-watch-se-3-44-mm-gps-estelar",
+   "name": "Apple Watch SE 3 44 mm GPS - Estelar",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "44 mm",
+   "price": 2219.9,
+   "images": [
+    "/loja/aw-se3-44-starlight.jpg"
+   ],
+   "description": "Apple Watch SE 3 de 44 mm, GPS, com caixa de alumínio na cor estelar e pulseira esportiva estelar. Produto original Apple, sob encomenda.",
+   "details": [
+    "44 mm",
+    "GPS",
+    "Caixa: Alumínio",
+    "Cor: Estelar",
+    "Pulseira esportiva Estelar",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-s11-46-rosegold",
+   "slug": "apple-watch-series-11-46-mm-gps-rose-rose-gold",
+   "name": "Apple Watch Series 11 46 mm GPS - Rosé (Rose Gold)",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "46 mm",
+   "price": 3199.9,
+   "images": [
+    "/loja/aw-s11-46-rosegold.jpg"
+   ],
+   "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor rosé (rose gold) e pulseira esportiva light blush. Produto original Apple, sob encomenda.",
+   "details": [
+    "46 mm",
+    "GPS",
+    "Caixa: Alumínio",
+    "Cor: Rosé (Rose Gold)",
+    "Pulseira esportiva Light Blush",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-s11-46-silver",
+   "slug": "apple-watch-series-11-46-mm-gps-prata",
+   "name": "Apple Watch Series 11 46 mm GPS - Prata",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "46 mm",
+   "price": 3199.9,
+   "images": [
+    "/loja/aw-s11-46-silver.jpg"
+   ],
+   "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor prata e pulseira esportiva névoa roxa. Produto original Apple, sob encomenda.",
+   "details": [
+    "46 mm",
+    "GPS",
+    "Caixa: Alumínio",
+    "Cor: Prata",
+    "Pulseira esportiva Névoa Roxa",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-s11-46-grey",
+   "slug": "apple-watch-series-11-46-mm-gps-cinza-espacial",
+   "name": "Apple Watch Series 11 46 mm GPS - Cinza-espacial",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "46 mm",
+   "price": 3199.9,
+   "images": [
+    "/loja/aw-s11-46-grey.jpg"
+   ],
+   "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor cinza-espacial e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+   "details": [
+    "46 mm",
+    "GPS",
+    "Caixa: Alumínio",
+    "Cor: Cinza-espacial",
+    "Pulseira esportiva Preta",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-s11-46-jet",
+   "slug": "apple-watch-series-11-46-mm-gps-preto-brilhante-jet-black",
+   "name": "Apple Watch Series 11 46 mm GPS - Preto Brilhante (Jet Black)",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "46 mm",
+   "price": 3199.9,
+   "images": [
+    "/loja/aw-s11-46-jet.jpg"
+   ],
+   "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor preto brilhante (jet black) e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+   "details": [
+    "46 mm",
+    "GPS",
+    "Caixa: Alumínio",
+    "Cor: Preto Brilhante (Jet Black)",
+    "Pulseira esportiva Preta",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-s11c-46-silver",
+   "slug": "apple-watch-series-11-46-mm-gps-cellular-prata",
+   "name": "Apple Watch Series 11 46 mm GPS + Cellular - Prata",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "46 mm",
+   "price": 4389.9,
+   "images": [
+    "/loja/aw-s11c-46-silver.jpg"
+   ],
+   "description": "Apple Watch Series 11 de 46 mm, GPS + Cellular, com caixa de alumínio na cor prata e pulseira esportiva névoa roxa. Produto original Apple, sob encomenda.",
+   "details": [
+    "46 mm",
+    "GPS + Cellular",
+    "Caixa: Alumínio",
+    "Cor: Prata",
+    "Pulseira esportiva Névoa Roxa",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-s11c-46-grey",
+   "slug": "apple-watch-series-11-46-mm-gps-cellular-cinza-espacial",
+   "name": "Apple Watch Series 11 46 mm GPS + Cellular - Cinza-espacial",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "46 mm",
+   "price": 4389.9,
+   "images": [
+    "/loja/aw-s11c-46-grey.jpg"
+   ],
+   "description": "Apple Watch Series 11 de 46 mm, GPS + Cellular, com caixa de alumínio na cor cinza-espacial e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+   "details": [
+    "46 mm",
+    "GPS + Cellular",
+    "Caixa: Alumínio",
+    "Cor: Cinza-espacial",
+    "Pulseira esportiva Preta",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-s12-42-black",
+   "slug": "apple-watch-series-12-42-mm-gps-preto",
+   "name": "Apple Watch Series 12 42 mm GPS - Preto",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "42 mm",
+   "price": 3769.9,
+   "images": [
+    "/loja/aw-s12-42-black.jpg"
+   ],
+   "description": "Apple Watch Series 12 de 42 mm, GPS, com caixa de alumínio na cor preto e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+   "details": [
+    "42 mm",
+    "GPS",
+    "Caixa: Alumínio",
+    "Cor: Preto",
+    "Pulseira esportiva Preta",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-s12-42-gold",
+   "slug": "apple-watch-series-12-42-mm-gps-dourado",
+   "name": "Apple Watch Series 12 42 mm GPS - Dourado",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "42 mm",
+   "price": 3769.9,
+   "images": [
+    "/loja/aw-s12-42-gold.jpg"
+   ],
+   "description": "Apple Watch Series 12 de 42 mm, GPS, com caixa de alumínio na cor dourado e pulseira esportiva areia. Produto original Apple, sob encomenda.",
+   "details": [
+    "42 mm",
+    "GPS",
+    "Caixa: Alumínio",
+    "Cor: Dourado",
+    "Pulseira esportiva Areia",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-s12-46-black",
+   "slug": "apple-watch-series-12-46-mm-gps-preto",
+   "name": "Apple Watch Series 12 46 mm GPS - Preto",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "46 mm",
+   "price": 4159.9,
+   "images": [
+    "/loja/aw-s12-46-black.jpg"
+   ],
+   "description": "Apple Watch Series 12 de 46 mm, GPS, com caixa de alumínio na cor preto e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+   "details": [
+    "46 mm",
+    "GPS",
+    "Caixa: Alumínio",
+    "Cor: Preto",
+    "Pulseira esportiva Preta",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  },
+  {
+   "id": "aw-u3-49-natural",
+   "slug": "apple-watch-ultra-3-49-mm-gps-cellular-titanio-natural",
+   "name": "Apple Watch Ultra 3 49 mm GPS + Cellular - Titânio Natural",
+   "brand": "Apple",
+   "category": "Smartwatches",
+   "size": "49 mm",
+   "price": 5909.9,
+   "images": [
+    "/loja/aw-u3-49-natural.jpg"
+   ],
+   "description": "Apple Watch Ultra 3 de 49 mm, GPS + Cellular, com caixa de titânio na cor titânio natural e loop trail azul. Produto original Apple, sob encomenda.",
+   "details": [
+    "49 mm",
+    "GPS + Cellular",
+    "Caixa: Titânio",
+    "Cor: Titânio Natural",
+    "Loop Trail Azul",
+    "Produto original Apple"
+   ],
+   "madeToOrder": true,
+   "stock": 0,
+   "active": true
+  }
+ ]
+}

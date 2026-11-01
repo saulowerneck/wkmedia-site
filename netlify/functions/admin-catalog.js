@@ -1,5 +1,5 @@
 // GET -> catálogo atual | PUT { catalog, baseVersion } -> salva (exige token do painel)
-import { catalogStore, loadCatalog, json } from "../lib/catalog.js";
+import { catalogStore, loadCatalog, autoIds, json } from "../lib/catalog.js";
 import { isAuthorized } from "../lib/auth.js";
 import { sanitizeCatalog } from "../lib/validate.js";
 
@@ -25,7 +25,7 @@ export default async (req) => {
     if (Number(body.baseVersion ?? 0) !== Number(current.version ?? 0)) {
       return json(409, { error: "conflict", message: "O catálogo foi alterado em outra aba ou dispositivo. Recarregue o painel antes de salvar." });
     }
-    const saved = { ...clean, version: Number(current.version ?? 0) + 1, updatedAt: new Date().toISOString() };
+    const saved = { ...clean, seedSeen: autoIds(), version: Number(current.version ?? 0) + 1, updatedAt: new Date().toISOString() };
     await catalogStore().setJSON("catalog", saved);
     return json(200, saved, { "Cache-Control": "no-store" });
   }
