@@ -522,6 +522,22 @@ function Panel({ token, onLogout }: { token: string; onLogout: () => void }) {
     a.click();
     URL.revokeObjectURL(a.href);
   }
+  async function addReadyProducts() {
+    try {
+      const res = await fetch(`/loja/novos-produtos.json?t=${Date.now()}`);
+      const data = await res.json();
+      const incoming: Product[] = Array.isArray(data?.products) ? data.products : [];
+      const have = new Set(products.map((p) => p.id));
+      const fresh = incoming.filter((p) => !have.has(p.id));
+      if (!fresh.length) return toast.info("Nenhum produto novo: todos já estão no catálogo.");
+      if (!confirm(`Adicionar ${fresh.length} produto(s) pronto(s) como OCULTOS? (Você ainda precisa clicar em Salvar.)`)) return;
+      setProducts((cur) => [...cur, ...fresh]);
+      toast.success(`${fresh.length} produto(s) adicionados (ocultos). Revise e clique em Salvar.`);
+    } catch {
+      toast.error("Não consegui carregar os produtos prontos.");
+    }
+  }
+
   async function importBackup(file?: File) {
     if (!file) return;
     try {
@@ -601,6 +617,7 @@ function Panel({ token, onLogout }: { token: string; onLogout: () => void }) {
             <div className="flex flex-wrap items-center gap-2 mb-4 text-xs text-white/50">
               <button className={btn} onClick={downloadBackup}><Download size={13} className="inline -mt-0.5 mr-1" /> Backup</button>
               <button className={btn} onClick={() => importRef.current?.click()}><Upload size={13} className="inline -mt-0.5 mr-1" /> Importar backup</button>
+              <button className={btn} onClick={addReadyProducts}><Plus size={13} className="inline -mt-0.5 mr-1" /> Adicionar produtos prontos</button>
               <input ref={importRef} type="file" accept="application/json" hidden onChange={(e) => importBackup(e.target.files?.[0])} />
               <button className={btn} onClick={() => !dirty || confirm("Descartar alterações não salvas e recarregar?") ? load() : undefined}>Recarregar</button>
             </div>
