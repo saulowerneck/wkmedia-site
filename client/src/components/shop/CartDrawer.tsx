@@ -54,7 +54,7 @@ export default function CartDrawer() {
                 <ul className="flex-1 overflow-y-auto divide-y divide-white/5">
                   {lines.map(({ product, qty }) => (
                     <li key={product.id} className="flex gap-4 p-6">
-                      <div className="w-20 h-20 bg-[#0A0A0A] shrink-0 overflow-hidden">
+                      <div className="w-20 h-20 bg-white shrink-0 overflow-hidden">
                         <ProductImage product={product} />
                       </div>
                       <div className="flex-1 min-w-0">

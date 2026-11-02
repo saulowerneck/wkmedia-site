@@ -200,7 +200,7 @@ export default function Checkout() {
                 <ul className="divide-y divide-white/5 mb-5">
                   {lines.map(({ product, qty }) => (
                     <li key={product.id} className="flex gap-3 py-4">
-                      <div className="w-14 h-14 bg-[#0A0A0A] shrink-0 overflow-hidden"><ProductImage product={product} /></div>
+                      <div className="w-14 h-14 bg-white shrink-0 overflow-hidden"><ProductImage product={product} /></div>
                       <div className="flex-1 min-w-0">
                         <p className="text-sm leading-snug">{product.name}{product.size ? <span className="text-white/35"> · {product.size}</span> : null}</p>
                         <div className="flex items-center gap-2 mt-1.5 text-xs text-white/40">

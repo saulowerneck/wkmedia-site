@@ -75,7 +75,7 @@ export default function Produto() {
 
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
             <div>
-              <div className="aspect-square bg-[#0A0A0A] overflow-hidden">
+              <div className="aspect-square bg-white overflow-hidden">
                 <ProductImage product={{ ...product, images: product.images.length ? [product.images[img]] : [] }} />
               </div>
               {product.images.length > 1 && (
@@ -85,9 +85,9 @@ export default function Produto() {
                       key={src}
                       onClick={() => setImg(i)}
                       aria-label={`Foto ${i + 1}`}
-                      className={`w-20 h-20 overflow-hidden border ${i === img ? "border-[var(--color-electric)]" : "border-white/10"}`}
+                      className={`w-20 h-20 overflow-hidden bg-white border-2 ${i === img ? "border-[var(--color-electric)]" : "border-white/10"}`}
                     >
-                      <img src={src} alt="" className="w-full h-full object-cover" />
+                      <img src={src} alt="" className="w-full h-full object-contain" />
                     </button>
                   ))}
                 </div>

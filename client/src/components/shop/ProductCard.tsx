@@ -6,7 +6,7 @@ import { useCart } from "@/contexts/CartContext";
 export function ProductImage({ product, className = "" }: { product: Product; className?: string }) {
   const src = product.images?.[0];
   return src ? (
-    <img src={src} alt={product.name} loading="lazy" className={`w-full h-full object-cover ${className}`} />
+    <img src={src} alt={product.name} loading="lazy" className={`w-full h-full object-contain ${className}`} />
   ) : (
     <div className={`w-full h-full flex items-center justify-center text-white/10 ${className}`}>
       <ShoppingBag size={48} />
@@ -23,9 +23,9 @@ export default function ProductCard({ product }: { product: Product }) {
       : 0;
 
   return (
-    <div className="group bg-black flex flex-col border-r border-b border-white/5">
-      <Link href={`/loja/${product.slug}`} className="relative block aspect-square bg-[#0A0A0A] overflow-hidden">
-        <div className="w-full h-full group-hover:scale-105 transition-transform duration-500">
+    <div className="group bg-black flex flex-col border-r border-b border-white/10 hover:bg-[#0A0A0A] transition-colors">
+      <Link href={`/loja/${product.slug}`} className="relative block aspect-square bg-white overflow-hidden">
+        <div className="w-full h-full group-hover:scale-[1.04] transition-transform duration-500">
           <ProductImage product={product} />
         </div>
         {discount > 0 && !soldOut && (
@@ -34,7 +34,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
         )}
         {soldOut && (
-          <span className="absolute top-3 left-3 bg-white text-black text-xs px-2 py-1" style={{ fontFamily: "var(--font-mono)" }}>
+          <span className="absolute top-3 left-3 bg-black text-white text-xs px-2 py-1" style={{ fontFamily: "var(--font-mono)" }}>
             ESGOTADO
           </span>
         )}
@@ -60,7 +60,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <button
           disabled={soldOut}
           onClick={() => add(product.id)}
-          className="mt-auto border border-white/15 text-white/80 hover:border-[var(--color-electric)] hover:text-[var(--color-electric)] disabled:opacity-30 disabled:hover:border-white/15 disabled:hover:text-white/80 transition-colors py-3 text-xs tracking-[0.15em] uppercase"
+          className="mt-auto bg-white text-black border border-white hover:bg-[var(--color-electric)] hover:border-[var(--color-electric)] hover:text-white disabled:opacity-30 disabled:hover:bg-white disabled:hover:border-white disabled:hover:text-black transition-colors py-3 text-xs font-medium tracking-[0.15em] uppercase"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           {soldOut ? "Indisponível" : "Adicionar"}

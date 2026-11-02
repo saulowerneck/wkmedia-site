@@ -1,6 +1,6 @@
 /* WK Shop — catálogo */
 import { useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, ShieldCheck, Truck, MessageCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -40,6 +40,22 @@ export default function Loja() {
             Produtos selecionados com pagamento seguro. Retire em Sorocaba ou receba em casa.
           </p>
 
+          <div className="bg-white text-black grid md:grid-cols-3 mb-10 md:divide-x divide-black/10 border-l-4 border-[var(--color-electric)]">
+            {[
+              { Icon: ShieldCheck, t: "Pagamento seguro", d: "Pix, cartão ou boleto pelo Mercado Pago" },
+              { Icon: Truck, t: "Retirada ou envio", d: "Retire em Sorocaba ou receba em todo o Brasil" },
+              { Icon: MessageCircle, t: "Atendimento direto", d: "Tire dúvidas pelo WhatsApp antes de comprar" },
+            ].map(({ Icon, t, d }) => (
+              <div key={t} className="flex items-center gap-4 px-6 py-5">
+                <Icon size={22} className="text-[var(--color-electric)] shrink-0" />
+                <div>
+                  <p className="font-semibold text-sm leading-tight" style={{ fontFamily: "var(--font-display)" }}>{t}</p>
+                  <p className="text-black/55 text-xs mt-0.5">{d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
           {!ready ? (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-white/5" aria-busy="true">
               {Array.from({ length: 8 }).map((_, i) => (
@@ -64,8 +80,8 @@ export default function Loja() {
                       onClick={() => setCat(c)}
                       className={`px-4 py-2 text-xs tracking-[0.15em] uppercase border transition-colors ${
                         cat === c
-                          ? "border-[var(--color-electric)] text-[var(--color-electric)]"
-                          : "border-white/10 text-white/50 hover:text-white"
+                          ? "border-white bg-white text-black"
+                          : "border-white/15 text-white/60 hover:text-white hover:border-white/40"
                       }`}
                       style={{ fontFamily: "var(--font-mono)" }}
                     >
@@ -74,13 +90,13 @@ export default function Loja() {
                   ))}
                 </div>
                 <label className="relative md:w-72">
-                  <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30" />
+                  <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-black/40" />
                   <input
                     value={q}
                     onChange={(e) => setQ(e.target.value)}
                     placeholder="Buscar produto"
                     aria-label="Buscar produto"
-                    className="w-full bg-transparent border border-white/10 focus:border-[var(--color-electric)] outline-none pl-10 pr-3 py-3 text-sm"
+                    className="w-full bg-white text-black placeholder:text-black/40 border border-white focus:border-[var(--color-electric)] outline-none pl-10 pr-3 py-3 text-sm"
                   />
                 </label>
               </div>
@@ -88,7 +104,7 @@ export default function Loja() {
               {list.length === 0 ? (
                 <p className="text-white/40 py-16 text-center">Nenhum produto encontrado.</p>
               ) : (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-t border-l border-white/5">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-t border-l border-white/10">
                   {list.map((p) => (
                     <ProductCard key={p.id} product={p} />
                   ))}
