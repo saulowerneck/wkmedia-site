@@ -3270,6 +3270,490 @@
       "madeToOrder": true,
       "stock": 0,
       "active": true
+    },
+    {
+      "id": "sk-01",
+      "slug": "medicube-deep-vita-c-capsule-cream-55-g",
+      "name": "Medicube Deep Vita C Capsule Cream 55 g",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "55 g",
+      "price": 349.9,
+      "images": [
+        "/loja/sk-01.jpg"
+      ],
+      "description": "Medicube Deep Vita C Capsule Cream 55 g, creme facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "55 g",
+        "Creme facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-02",
+      "slug": "medicube-pdrn-pink-caffeine-night-wrapping-mask-75-ml",
+      "name": "Medicube PDRN Pink Caffeine Night Wrapping Mask 75 ml",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "75 ml",
+      "price": 399.9,
+      "images": [
+        "/loja/sk-02.jpg"
+      ],
+      "description": "Medicube PDRN Pink Caffeine Night Wrapping Mask 75 ml, máscara noturna coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "75 ml",
+        "Máscara noturna",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-03",
+      "slug": "medicube-pdrn-pink-collagen-capsule-cream-55-g",
+      "name": "Medicube PDRN Pink Collagen Capsule Cream 55 g",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "55 g",
+      "price": 369.9,
+      "images": [
+        "/loja/sk-03.jpg"
+      ],
+      "description": "Medicube PDRN Pink Collagen Capsule Cream 55 g, creme facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "55 g",
+        "Creme facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-04",
+      "slug": "medicube-txa-niacinamide-15-serum-30-ml",
+      "name": "Medicube TXA Niacinamide 15% Serum 30 ml",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "30 ml",
+      "price": 319.9,
+      "images": [
+        "/loja/sk-04.jpg"
+      ],
+      "description": "Medicube TXA Niacinamide 15% Serum 30 ml, sérum facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "30 ml",
+        "Sérum facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-05",
+      "slug": "medicube-collagen-night-wrapping-mask-75-ml",
+      "name": "Medicube Collagen Night Wrapping Mask 75 ml",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "75 ml",
+      "price": 279.9,
+      "images": [
+        "/loja/sk-05.jpg"
+      ],
+      "description": "Medicube Collagen Night Wrapping Mask 75 ml, máscara noturna coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "75 ml",
+        "Máscara noturna",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-06",
+      "slug": "medicube-one-day-exosome-shot-2000-30-ml",
+      "name": "Medicube One Day Exosome Shot 2000 30 ml",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "30 ml",
+      "price": 299.9,
+      "images": [
+        "/loja/sk-06.jpg"
+      ],
+      "description": "Medicube One Day Exosome Shot 2000 30 ml, sérum facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "30 ml",
+        "Sérum facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-07",
+      "slug": "medicube-kojic-acid-turmeric-niacinamide-serum-30-ml",
+      "name": "Medicube Kojic Acid Turmeric Niacinamide Serum 30 ml",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "30 ml",
+      "price": 359.9,
+      "images": [
+        "/loja/sk-07.jpg"
+      ],
+      "description": "Medicube Kojic Acid Turmeric Niacinamide Serum 30 ml, sérum facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "30 ml",
+        "Sérum facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-08",
+      "slug": "medicube-deep-vita-c-pad-70-pads",
+      "name": "Medicube Deep Vita C Pad 70 pads",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "70 pads",
+      "price": 359.9,
+      "images": [
+        "/loja/sk-08.jpg"
+      ],
+      "description": "Medicube Deep Vita C Pad 70 pads, pads de tratamento coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "70 pads",
+        "Pads de tratamento",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-09",
+      "slug": "medicube-zero-pore-blackhead-mud-mask-100-g",
+      "name": "Medicube Zero Pore Blackhead Mud Mask 100 g",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "100 g",
+      "price": 389.9,
+      "images": [
+        "/loja/sk-09.jpg"
+      ],
+      "description": "Medicube Zero Pore Blackhead Mud Mask 100 g, máscara facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "100 g",
+        "Máscara facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-10",
+      "slug": "medicube-one-day-exosome-shot-7500-30-ml",
+      "name": "Medicube One Day Exosome Shot 7500 30 ml",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "30 ml",
+      "price": 329.9,
+      "images": [
+        "/loja/sk-10.jpg"
+      ],
+      "description": "Medicube One Day Exosome Shot 7500 30 ml, sérum facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "30 ml",
+        "Sérum facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-11",
+      "slug": "medicube-collagen-jelly-cream-50-ml",
+      "name": "Medicube Collagen Jelly Cream 50 ml",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "50 ml",
+      "price": 219.9,
+      "images": [
+        "/loja/sk-11.jpg"
+      ],
+      "description": "Medicube Collagen Jelly Cream 50 ml, creme facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "50 ml",
+        "Creme facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-12",
+      "slug": "medicube-zero-foam-cleanser-120-g",
+      "name": "Medicube Zero Foam Cleanser 120 g",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "120 g",
+      "price": 229.9,
+      "images": [
+        "/loja/sk-12.jpg"
+      ],
+      "description": "Medicube Zero Foam Cleanser 120 g, espuma de limpeza facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "120 g",
+        "Espuma de limpeza facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-13",
+      "slug": "medicube-hyaluronic-moisturizing-capsule-cream-55-g",
+      "name": "Medicube Hyaluronic Moisturizing Capsule Cream 55 g",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "55 g",
+      "price": 349.9,
+      "images": [
+        "/loja/sk-13.jpg"
+      ],
+      "description": "Medicube Hyaluronic Moisturizing Capsule Cream 55 g, creme facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "55 g",
+        "Creme facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-14",
+      "slug": "medicube-glutathione-glow-serum-30-g",
+      "name": "Medicube Glutathione Glow Serum 30 g",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "30 g",
+      "price": 299.9,
+      "images": [
+        "/loja/sk-14.jpg"
+      ],
+      "description": "Medicube Glutathione Glow Serum 30 g, sérum iluminador coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "30 g",
+        "Sérum iluminador",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-15",
+      "slug": "medicube-zero-pore-pad-70-pads",
+      "name": "Medicube Zero Pore Pad 70 pads",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "70 pads",
+      "price": 309.9,
+      "images": [
+        "/loja/sk-15.jpg"
+      ],
+      "description": "Medicube Zero Pore Pad 70 pads, pads de tratamento coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "70 pads",
+        "Pads de tratamento",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-16",
+      "slug": "medicube-pdrn-pink-peptide-serum-30-ml",
+      "name": "Medicube PDRN Pink Peptide Serum 30 ml",
+      "brand": "Medicube",
+      "category": "Skincare",
+      "size": "30 ml",
+      "price": 279.9,
+      "images": [
+        "/loja/sk-16.jpg"
+      ],
+      "description": "Medicube PDRN Pink Peptide Serum 30 ml, sérum facial coreano original Medicube. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "30 ml",
+        "Sérum facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original Medicube"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-17",
+      "slug": "skin1004-madagascar-centella-ampoule-foam-125-ml",
+      "name": "SKIN1004 Madagascar Centella Ampoule Foam 125 ml",
+      "brand": "SKIN1004",
+      "category": "Skincare",
+      "size": "125 ml",
+      "price": 179.9,
+      "images": [
+        "/loja/sk-17.jpg"
+      ],
+      "description": "SKIN1004 Madagascar Centella Ampoule Foam 125 ml, espuma de limpeza facial coreano original SKIN1004. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "125 ml",
+        "Espuma de limpeza facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original SKIN1004"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-18",
+      "slug": "skin1004-poremizing-quick-clay-stick-mask-27-g",
+      "name": "SKIN1004 Poremizing Quick Clay Stick Mask 27 g",
+      "brand": "SKIN1004",
+      "category": "Skincare",
+      "size": "27 g",
+      "price": 219.9,
+      "images": [
+        "/loja/sk-18.jpg"
+      ],
+      "description": "SKIN1004 Poremizing Quick Clay Stick Mask 27 g, máscara facial em bastão coreano original SKIN1004. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "27 g",
+        "Máscara facial em bastão",
+        "K-beauty (Coreia do Sul)",
+        "Produto original SKIN1004"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-19",
+      "slug": "skin1004-madagascar-centella-tea-trica-b5-cream-75-ml",
+      "name": "SKIN1004 Madagascar Centella Tea-Trica B5 Cream 75 ml",
+      "brand": "SKIN1004",
+      "category": "Skincare",
+      "size": "75 ml",
+      "price": 219.9,
+      "images": [
+        "/loja/sk-19.jpg"
+      ],
+      "description": "SKIN1004 Madagascar Centella Tea-Trica B5 Cream 75 ml, creme facial coreano original SKIN1004. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "75 ml",
+        "Creme facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original SKIN1004"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-20",
+      "slug": "skin1004-madagascar-centella-soothing-cream-75-ml",
+      "name": "SKIN1004 Madagascar Centella Soothing Cream 75 ml",
+      "brand": "SKIN1004",
+      "category": "Skincare",
+      "size": "75 ml",
+      "price": 189.9,
+      "images": [
+        "/loja/sk-20.jpg"
+      ],
+      "description": "SKIN1004 Madagascar Centella Soothing Cream 75 ml, creme calmante coreano original SKIN1004. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "75 ml",
+        "Creme calmante",
+        "K-beauty (Coreia do Sul)",
+        "Produto original SKIN1004"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-21",
+      "slug": "skin1004-madagascar-centella-toning-toner-210-ml",
+      "name": "SKIN1004 Madagascar Centella Toning Toner 210 ml",
+      "brand": "SKIN1004",
+      "category": "Skincare",
+      "size": "210 ml",
+      "price": 179.9,
+      "images": [
+        "/loja/sk-21.jpg"
+      ],
+      "description": "SKIN1004 Madagascar Centella Toning Toner 210 ml, tônico facial coreano original SKIN1004. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "210 ml",
+        "Tônico facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original SKIN1004"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "sk-22",
+      "slug": "skin1004-madagascar-centella-light-cleansing-oil-200-ml",
+      "name": "SKIN1004 Madagascar Centella Light Cleansing Oil 200 ml",
+      "brand": "SKIN1004",
+      "category": "Skincare",
+      "size": "200 ml",
+      "price": 199.9,
+      "images": [
+        "/loja/sk-22.jpg"
+      ],
+      "description": "SKIN1004 Madagascar Centella Light Cleansing Oil 200 ml, óleo de limpeza facial coreano original SKIN1004. K-beauty mais vendido. Produto importado, sob encomenda.",
+      "details": [
+        "200 ml",
+        "Óleo de limpeza facial",
+        "K-beauty (Coreia do Sul)",
+        "Produto original SKIN1004"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
     }
   ]
 }
