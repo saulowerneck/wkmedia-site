@@ -102,6 +102,20 @@ export default function Loja() {
                 </label>
               </div>
 
+              {list.length > 0 && (
+                <a
+                  href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent("Olá! Não encontrei na WK Shop o produto que procuro. Vocês conseguem trazer pra mim?")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 mb-6 px-4 py-3 border border-white/15 text-sm text-white/70 hover:text-white hover:border-[var(--color-electric)] transition-colors"
+                >
+                  <MessageCircle size={18} className="text-[var(--color-electric)] shrink-0" />
+                  <span>
+                    <strong className="text-white font-semibold">Não encontrou o que procurava?</strong> Chame no WhatsApp e peça seu produto.
+                  </span>
+                </a>
+              )}
+
               {list.length === 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-t border-l border-white/10">
                   <RequestCard whatsapp={settings.whatsapp} term={q} wide />
