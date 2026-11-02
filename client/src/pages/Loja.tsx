@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProductCard from "@/components/shop/ProductCard";
+import RequestCard from "@/components/shop/RequestCard";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useCatalog } from "@/contexts/CatalogContext";
 
@@ -102,12 +103,15 @@ export default function Loja() {
               </div>
 
               {list.length === 0 ? (
-                <p className="text-white/40 py-16 text-center">Nenhum produto encontrado.</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-t border-l border-white/10">
+                  <RequestCard whatsapp={settings.whatsapp} term={q} wide />
+                </div>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-t border-l border-white/10">
                   {list.map((p) => (
                     <ProductCard key={p.id} product={p} />
                   ))}
+                  <RequestCard whatsapp={settings.whatsapp} term={q} />
                 </div>
               )}
             </>
