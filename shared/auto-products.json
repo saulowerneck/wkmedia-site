@@ -1,292 +1,811 @@
 {
- "products": [
-  {
-   "id": "aw-se3-44-midnight",
-   "slug": "apple-watch-se-3-44-mm-gps-meia-noite",
-   "name": "Apple Watch SE 3 44 mm GPS - Meia-noite",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "44 mm",
-   "price": 2219.9,
-   "images": [
-    "/loja/aw-se3-44-midnight.jpg"
-   ],
-   "description": "Apple Watch SE 3 de 44 mm, GPS, com caixa de alumínio na cor meia-noite e pulseira esportiva meia-noite. Produto original Apple, sob encomenda.",
-   "details": [
-    "44 mm",
-    "GPS",
-    "Caixa: Alumínio",
-    "Cor: Meia-noite",
-    "Pulseira esportiva Meia-noite",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-se3-44-starlight",
-   "slug": "apple-watch-se-3-44-mm-gps-estelar",
-   "name": "Apple Watch SE 3 44 mm GPS - Estelar",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "44 mm",
-   "price": 2219.9,
-   "images": [
-    "/loja/aw-se3-44-starlight.jpg"
-   ],
-   "description": "Apple Watch SE 3 de 44 mm, GPS, com caixa de alumínio na cor estelar e pulseira esportiva estelar. Produto original Apple, sob encomenda.",
-   "details": [
-    "44 mm",
-    "GPS",
-    "Caixa: Alumínio",
-    "Cor: Estelar",
-    "Pulseira esportiva Estelar",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-s11-46-rosegold",
-   "slug": "apple-watch-series-11-46-mm-gps-rose-rose-gold",
-   "name": "Apple Watch Series 11 46 mm GPS - Rosé (Rose Gold)",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "46 mm",
-   "price": 3199.9,
-   "images": [
-    "/loja/aw-s11-46-rosegold.jpg"
-   ],
-   "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor rosé (rose gold) e pulseira esportiva light blush. Produto original Apple, sob encomenda.",
-   "details": [
-    "46 mm",
-    "GPS",
-    "Caixa: Alumínio",
-    "Cor: Rosé (Rose Gold)",
-    "Pulseira esportiva Light Blush",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-s11-46-silver",
-   "slug": "apple-watch-series-11-46-mm-gps-prata",
-   "name": "Apple Watch Series 11 46 mm GPS - Prata",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "46 mm",
-   "price": 3199.9,
-   "images": [
-    "/loja/aw-s11-46-silver.jpg"
-   ],
-   "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor prata e pulseira esportiva névoa roxa. Produto original Apple, sob encomenda.",
-   "details": [
-    "46 mm",
-    "GPS",
-    "Caixa: Alumínio",
-    "Cor: Prata",
-    "Pulseira esportiva Névoa Roxa",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-s11-46-grey",
-   "slug": "apple-watch-series-11-46-mm-gps-cinza-espacial",
-   "name": "Apple Watch Series 11 46 mm GPS - Cinza-espacial",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "46 mm",
-   "price": 3199.9,
-   "images": [
-    "/loja/aw-s11-46-grey.jpg"
-   ],
-   "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor cinza-espacial e pulseira esportiva preta. Produto original Apple, sob encomenda.",
-   "details": [
-    "46 mm",
-    "GPS",
-    "Caixa: Alumínio",
-    "Cor: Cinza-espacial",
-    "Pulseira esportiva Preta",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-s11-46-jet",
-   "slug": "apple-watch-series-11-46-mm-gps-preto-brilhante-jet-black",
-   "name": "Apple Watch Series 11 46 mm GPS - Preto Brilhante (Jet Black)",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "46 mm",
-   "price": 3199.9,
-   "images": [
-    "/loja/aw-s11-46-jet.jpg"
-   ],
-   "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor preto brilhante (jet black) e pulseira esportiva preta. Produto original Apple, sob encomenda.",
-   "details": [
-    "46 mm",
-    "GPS",
-    "Caixa: Alumínio",
-    "Cor: Preto Brilhante (Jet Black)",
-    "Pulseira esportiva Preta",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-s11c-46-silver",
-   "slug": "apple-watch-series-11-46-mm-gps-cellular-prata",
-   "name": "Apple Watch Series 11 46 mm GPS + Cellular - Prata",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "46 mm",
-   "price": 4389.9,
-   "images": [
-    "/loja/aw-s11c-46-silver.jpg"
-   ],
-   "description": "Apple Watch Series 11 de 46 mm, GPS + Cellular, com caixa de alumínio na cor prata e pulseira esportiva névoa roxa. Produto original Apple, sob encomenda.",
-   "details": [
-    "46 mm",
-    "GPS + Cellular",
-    "Caixa: Alumínio",
-    "Cor: Prata",
-    "Pulseira esportiva Névoa Roxa",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-s11c-46-grey",
-   "slug": "apple-watch-series-11-46-mm-gps-cellular-cinza-espacial",
-   "name": "Apple Watch Series 11 46 mm GPS + Cellular - Cinza-espacial",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "46 mm",
-   "price": 4389.9,
-   "images": [
-    "/loja/aw-s11c-46-grey.jpg"
-   ],
-   "description": "Apple Watch Series 11 de 46 mm, GPS + Cellular, com caixa de alumínio na cor cinza-espacial e pulseira esportiva preta. Produto original Apple, sob encomenda.",
-   "details": [
-    "46 mm",
-    "GPS + Cellular",
-    "Caixa: Alumínio",
-    "Cor: Cinza-espacial",
-    "Pulseira esportiva Preta",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-s12-42-black",
-   "slug": "apple-watch-series-12-42-mm-gps-preto",
-   "name": "Apple Watch Series 12 42 mm GPS - Preto",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "42 mm",
-   "price": 3769.9,
-   "images": [
-    "/loja/aw-s12-42-black.jpg"
-   ],
-   "description": "Apple Watch Series 12 de 42 mm, GPS, com caixa de alumínio na cor preto e pulseira esportiva preta. Produto original Apple, sob encomenda.",
-   "details": [
-    "42 mm",
-    "GPS",
-    "Caixa: Alumínio",
-    "Cor: Preto",
-    "Pulseira esportiva Preta",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-s12-42-gold",
-   "slug": "apple-watch-series-12-42-mm-gps-dourado",
-   "name": "Apple Watch Series 12 42 mm GPS - Dourado",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "42 mm",
-   "price": 3769.9,
-   "images": [
-    "/loja/aw-s12-42-gold.jpg"
-   ],
-   "description": "Apple Watch Series 12 de 42 mm, GPS, com caixa de alumínio na cor dourado e pulseira esportiva areia. Produto original Apple, sob encomenda.",
-   "details": [
-    "42 mm",
-    "GPS",
-    "Caixa: Alumínio",
-    "Cor: Dourado",
-    "Pulseira esportiva Areia",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-s12-46-black",
-   "slug": "apple-watch-series-12-46-mm-gps-preto",
-   "name": "Apple Watch Series 12 46 mm GPS - Preto",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "46 mm",
-   "price": 4159.9,
-   "images": [
-    "/loja/aw-s12-46-black.jpg"
-   ],
-   "description": "Apple Watch Series 12 de 46 mm, GPS, com caixa de alumínio na cor preto e pulseira esportiva preta. Produto original Apple, sob encomenda.",
-   "details": [
-    "46 mm",
-    "GPS",
-    "Caixa: Alumínio",
-    "Cor: Preto",
-    "Pulseira esportiva Preta",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  },
-  {
-   "id": "aw-u3-49-natural",
-   "slug": "apple-watch-ultra-3-49-mm-gps-cellular-titanio-natural",
-   "name": "Apple Watch Ultra 3 49 mm GPS + Cellular - Titânio Natural",
-   "brand": "Apple",
-   "category": "Smartwatches",
-   "size": "49 mm",
-   "price": 5909.9,
-   "images": [
-    "/loja/aw-u3-49-natural.jpg"
-   ],
-   "description": "Apple Watch Ultra 3 de 49 mm, GPS + Cellular, com caixa de titânio na cor titânio natural e loop trail azul. Produto original Apple, sob encomenda.",
-   "details": [
-    "49 mm",
-    "GPS + Cellular",
-    "Caixa: Titânio",
-    "Cor: Titânio Natural",
-    "Loop Trail Azul",
-    "Produto original Apple"
-   ],
-   "madeToOrder": true,
-   "stock": 0,
-   "active": true
-  }
- ]
+  "products": [
+    {
+      "id": "aw-se3-44-midnight",
+      "slug": "apple-watch-se-3-44-mm-gps-meia-noite",
+      "name": "Apple Watch SE 3 44 mm GPS - Meia-noite",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "44 mm",
+      "price": 2219.9,
+      "images": [
+        "/loja/aw-se3-44-midnight.jpg"
+      ],
+      "description": "Apple Watch SE 3 de 44 mm, GPS, com caixa de alumínio na cor meia-noite e pulseira esportiva meia-noite. Produto original Apple, sob encomenda.",
+      "details": [
+        "44 mm",
+        "GPS",
+        "Caixa: Alumínio",
+        "Cor: Meia-noite",
+        "Pulseira esportiva Meia-noite",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-se3-44-starlight",
+      "slug": "apple-watch-se-3-44-mm-gps-estelar",
+      "name": "Apple Watch SE 3 44 mm GPS - Estelar",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "44 mm",
+      "price": 2219.9,
+      "images": [
+        "/loja/aw-se3-44-starlight.jpg"
+      ],
+      "description": "Apple Watch SE 3 de 44 mm, GPS, com caixa de alumínio na cor estelar e pulseira esportiva estelar. Produto original Apple, sob encomenda.",
+      "details": [
+        "44 mm",
+        "GPS",
+        "Caixa: Alumínio",
+        "Cor: Estelar",
+        "Pulseira esportiva Estelar",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-s11-46-rosegold",
+      "slug": "apple-watch-series-11-46-mm-gps-rose-rose-gold",
+      "name": "Apple Watch Series 11 46 mm GPS - Rosé (Rose Gold)",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "46 mm",
+      "price": 3199.9,
+      "images": [
+        "/loja/aw-s11-46-rosegold.jpg"
+      ],
+      "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor rosé (rose gold) e pulseira esportiva light blush. Produto original Apple, sob encomenda.",
+      "details": [
+        "46 mm",
+        "GPS",
+        "Caixa: Alumínio",
+        "Cor: Rosé (Rose Gold)",
+        "Pulseira esportiva Light Blush",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-s11-46-silver",
+      "slug": "apple-watch-series-11-46-mm-gps-prata",
+      "name": "Apple Watch Series 11 46 mm GPS - Prata",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "46 mm",
+      "price": 3199.9,
+      "images": [
+        "/loja/aw-s11-46-silver.jpg"
+      ],
+      "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor prata e pulseira esportiva névoa roxa. Produto original Apple, sob encomenda.",
+      "details": [
+        "46 mm",
+        "GPS",
+        "Caixa: Alumínio",
+        "Cor: Prata",
+        "Pulseira esportiva Névoa Roxa",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-s11-46-grey",
+      "slug": "apple-watch-series-11-46-mm-gps-cinza-espacial",
+      "name": "Apple Watch Series 11 46 mm GPS - Cinza-espacial",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "46 mm",
+      "price": 3199.9,
+      "images": [
+        "/loja/aw-s11-46-grey.jpg"
+      ],
+      "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor cinza-espacial e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+      "details": [
+        "46 mm",
+        "GPS",
+        "Caixa: Alumínio",
+        "Cor: Cinza-espacial",
+        "Pulseira esportiva Preta",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-s11-46-jet",
+      "slug": "apple-watch-series-11-46-mm-gps-preto-brilhante-jet-black",
+      "name": "Apple Watch Series 11 46 mm GPS - Preto Brilhante (Jet Black)",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "46 mm",
+      "price": 3199.9,
+      "images": [
+        "/loja/aw-s11-46-jet.jpg"
+      ],
+      "description": "Apple Watch Series 11 de 46 mm, GPS, com caixa de alumínio na cor preto brilhante (jet black) e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+      "details": [
+        "46 mm",
+        "GPS",
+        "Caixa: Alumínio",
+        "Cor: Preto Brilhante (Jet Black)",
+        "Pulseira esportiva Preta",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-s11c-46-silver",
+      "slug": "apple-watch-series-11-46-mm-gps-cellular-prata",
+      "name": "Apple Watch Series 11 46 mm GPS + Cellular - Prata",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "46 mm",
+      "price": 4389.9,
+      "images": [
+        "/loja/aw-s11c-46-silver.jpg"
+      ],
+      "description": "Apple Watch Series 11 de 46 mm, GPS + Cellular, com caixa de alumínio na cor prata e pulseira esportiva névoa roxa. Produto original Apple, sob encomenda.",
+      "details": [
+        "46 mm",
+        "GPS + Cellular",
+        "Caixa: Alumínio",
+        "Cor: Prata",
+        "Pulseira esportiva Névoa Roxa",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-s11c-46-grey",
+      "slug": "apple-watch-series-11-46-mm-gps-cellular-cinza-espacial",
+      "name": "Apple Watch Series 11 46 mm GPS + Cellular - Cinza-espacial",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "46 mm",
+      "price": 4389.9,
+      "images": [
+        "/loja/aw-s11c-46-grey.jpg"
+      ],
+      "description": "Apple Watch Series 11 de 46 mm, GPS + Cellular, com caixa de alumínio na cor cinza-espacial e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+      "details": [
+        "46 mm",
+        "GPS + Cellular",
+        "Caixa: Alumínio",
+        "Cor: Cinza-espacial",
+        "Pulseira esportiva Preta",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-s12-42-black",
+      "slug": "apple-watch-series-12-42-mm-gps-preto",
+      "name": "Apple Watch Series 12 42 mm GPS - Preto",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "42 mm",
+      "price": 3769.9,
+      "images": [
+        "/loja/aw-s12-42-black.jpg"
+      ],
+      "description": "Apple Watch Series 12 de 42 mm, GPS, com caixa de alumínio na cor preto e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+      "details": [
+        "42 mm",
+        "GPS",
+        "Caixa: Alumínio",
+        "Cor: Preto",
+        "Pulseira esportiva Preta",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-s12-42-gold",
+      "slug": "apple-watch-series-12-42-mm-gps-dourado",
+      "name": "Apple Watch Series 12 42 mm GPS - Dourado",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "42 mm",
+      "price": 3769.9,
+      "images": [
+        "/loja/aw-s12-42-gold.jpg"
+      ],
+      "description": "Apple Watch Series 12 de 42 mm, GPS, com caixa de alumínio na cor dourado e pulseira esportiva areia. Produto original Apple, sob encomenda.",
+      "details": [
+        "42 mm",
+        "GPS",
+        "Caixa: Alumínio",
+        "Cor: Dourado",
+        "Pulseira esportiva Areia",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-s12-46-black",
+      "slug": "apple-watch-series-12-46-mm-gps-preto",
+      "name": "Apple Watch Series 12 46 mm GPS - Preto",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "46 mm",
+      "price": 4159.9,
+      "images": [
+        "/loja/aw-s12-46-black.jpg"
+      ],
+      "description": "Apple Watch Series 12 de 46 mm, GPS, com caixa de alumínio na cor preto e pulseira esportiva preta. Produto original Apple, sob encomenda.",
+      "details": [
+        "46 mm",
+        "GPS",
+        "Caixa: Alumínio",
+        "Cor: Preto",
+        "Pulseira esportiva Preta",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "aw-u3-49-natural",
+      "slug": "apple-watch-ultra-3-49-mm-gps-cellular-titanio-natural",
+      "name": "Apple Watch Ultra 3 49 mm GPS + Cellular - Titânio Natural",
+      "brand": "Apple",
+      "category": "Smartwatches",
+      "size": "49 mm",
+      "price": 5909.9,
+      "images": [
+        "/loja/aw-u3-49-natural.jpg"
+      ],
+      "description": "Apple Watch Ultra 3 de 49 mm, GPS + Cellular, com caixa de titânio na cor titânio natural e loop trail azul. Produto original Apple, sob encomenda.",
+      "details": [
+        "49 mm",
+        "GPS + Cellular",
+        "Caixa: Titânio",
+        "Cor: Titânio Natural",
+        "Loop Trail Azul",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-01",
+      "slug": "xiaomi-band-10-rosa",
+      "name": "Xiaomi Band 10 - Rosa",
+      "brand": "Xiaomi",
+      "category": "Smartwatches",
+      "size": "Pulseira",
+      "price": 269.9,
+      "images": [
+        "/loja/gx-01.jpg"
+      ],
+      "description": "Xiaomi Band 10 - Rosa, smartband original Xiaomi, na cor Rosa. Produto importado, sob encomenda.",
+      "details": [
+        "Pulseira",
+        "Cor: Rosa",
+        "Tela AMOLED",
+        "Produto original Xiaomi"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-02",
+      "slug": "xiaomi-band-10-preto",
+      "name": "Xiaomi Band 10 - Preto",
+      "brand": "Xiaomi",
+      "category": "Smartwatches",
+      "size": "Pulseira",
+      "price": 269.9,
+      "images": [
+        "/loja/gx-02.jpg"
+      ],
+      "description": "Xiaomi Band 10 - Preto, smartband original Xiaomi, na cor Preto. Produto importado, sob encomenda.",
+      "details": [
+        "Pulseira",
+        "Cor: Preto",
+        "Tela AMOLED",
+        "Produto original Xiaomi"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-03",
+      "slug": "garmin-forerunner-570-47-mm-slate-gray",
+      "name": "Garmin Forerunner 570 47 mm - Slate Gray",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "47 mm",
+      "price": 3349.9,
+      "images": [
+        "/loja/gx-03.jpg"
+      ],
+      "description": "Garmin Forerunner 570 47 mm - Slate Gray, smartwatch GPS original Garmin, na cor Slate Gray. Produto importado, sob encomenda.",
+      "details": [
+        "47 mm",
+        "Cor: Slate Gray",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-04",
+      "slug": "garmin-forerunner-570-47-mm-roxo-indigo",
+      "name": "Garmin Forerunner 570 47 mm - Roxo/Índigo",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "47 mm",
+      "price": 3349.9,
+      "images": [
+        "/loja/gx-04.jpg"
+      ],
+      "description": "Garmin Forerunner 570 47 mm - Roxo/Índigo, smartwatch GPS original Garmin, na cor Roxo/Índigo. Produto importado, sob encomenda.",
+      "details": [
+        "47 mm",
+        "Cor: Roxo/Índigo",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-05",
+      "slug": "garmin-forerunner-570-47-mm-amp-yellow",
+      "name": "Garmin Forerunner 570 47 mm - Amp Yellow",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "47 mm",
+      "price": 3349.9,
+      "images": [
+        "/loja/gx-05.jpg"
+      ],
+      "description": "Garmin Forerunner 570 47 mm - Amp Yellow, smartwatch GPS original Garmin, na cor Amp Yellow. Produto importado, sob encomenda.",
+      "details": [
+        "47 mm",
+        "Cor: Amp Yellow",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-06",
+      "slug": "garmin-forerunner-570-42-mm-slate-gray",
+      "name": "Garmin Forerunner 570 42 mm - Slate Gray",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "42 mm",
+      "price": 3349.9,
+      "images": [
+        "/loja/gx-06.jpg"
+      ],
+      "description": "Garmin Forerunner 570 42 mm - Slate Gray, smartwatch GPS original Garmin, na cor Slate Gray. Produto importado, sob encomenda.",
+      "details": [
+        "42 mm",
+        "Cor: Slate Gray",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-07",
+      "slug": "garmin-forerunner-570-42-mm-raspberry",
+      "name": "Garmin Forerunner 570 42 mm - Raspberry",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "42 mm",
+      "price": 3349.9,
+      "images": [
+        "/loja/gx-07.jpg"
+      ],
+      "description": "Garmin Forerunner 570 42 mm - Raspberry, smartwatch GPS original Garmin, na cor Raspberry. Produto importado, sob encomenda.",
+      "details": [
+        "42 mm",
+        "Cor: Raspberry",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-08",
+      "slug": "garmin-forerunner-570-42-mm-cloud-blue",
+      "name": "Garmin Forerunner 570 42 mm - Cloud Blue",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "42 mm",
+      "price": 3349.9,
+      "images": [
+        "/loja/gx-08.jpg"
+      ],
+      "description": "Garmin Forerunner 570 42 mm - Cloud Blue, smartwatch GPS original Garmin, na cor Cloud Blue. Produto importado, sob encomenda.",
+      "details": [
+        "42 mm",
+        "Cor: Cloud Blue",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-09",
+      "slug": "garmin-vivoactive-6-slate-black",
+      "name": "Garmin Vivoactive 6 - Slate Black",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "Único",
+      "price": 2139.9,
+      "images": [
+        "/loja/gx-09.jpg"
+      ],
+      "description": "Garmin Vivoactive 6 - Slate Black, smartwatch GPS original Garmin, na cor Slate Black. Produto importado, sob encomenda.",
+      "details": [
+        "Cor: Slate Black",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-10",
+      "slug": "garmin-vivoactive-6-jasper-green",
+      "name": "Garmin Vivoactive 6 - Jasper Green",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "Único",
+      "price": 2119.9,
+      "images": [
+        "/loja/gx-10.jpg"
+      ],
+      "description": "Garmin Vivoactive 6 - Jasper Green, smartwatch GPS original Garmin, na cor Jasper Green. Produto importado, sob encomenda.",
+      "details": [
+        "Cor: Jasper Green",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-11",
+      "slug": "garmin-instinct-3-solar-50-mm-preto-carvao",
+      "name": "Garmin Instinct 3 Solar 50 mm - Preto/Carvão",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "50 mm",
+      "price": 2869.9,
+      "images": [
+        "/loja/gx-11.jpg"
+      ],
+      "description": "Garmin Instinct 3 Solar 50 mm - Preto/Carvão, smartwatch GPS original Garmin, na cor Preto/Carvão. Produto importado, sob encomenda.",
+      "details": [
+        "50 mm",
+        "Cor: Preto/Carvão",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-12",
+      "slug": "garmin-instinct-3-solar-45-mm-preto",
+      "name": "Garmin Instinct 3 Solar 45 mm - Preto",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "45 mm",
+      "price": 2729.9,
+      "images": [
+        "/loja/gx-12.jpg"
+      ],
+      "description": "Garmin Instinct 3 Solar 45 mm - Preto, smartwatch GPS original Garmin, na cor Preto. Produto importado, sob encomenda.",
+      "details": [
+        "45 mm",
+        "Cor: Preto",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-13",
+      "slug": "garmin-fenix-8-sapphire-solar-titanio-amarelo",
+      "name": "Garmin Fenix 8 Sapphire Solar - Titânio Amarelo",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "Único",
+      "price": 6389.9,
+      "images": [
+        "/loja/gx-13.jpg"
+      ],
+      "description": "Garmin Fenix 8 Sapphire Solar - Titânio Amarelo, smartwatch GPS original Garmin, na cor Titânio Amarelo. Produto importado, sob encomenda.",
+      "details": [
+        "Cor: Titânio Amarelo",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-14",
+      "slug": "garmin-fenix-8-solar-sapphire-47mm-cinza-carvao-preto",
+      "name": "Garmin Fenix 8 Solar Sapphire 47mm - Cinza Carvão/Preto",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "47 mm",
+      "price": 6389.9,
+      "images": [
+        "/loja/gx-14.jpg"
+      ],
+      "description": "Garmin Fenix 8 Solar Sapphire 47mm - Cinza Carvão/Preto, smartwatch GPS original Garmin, na cor Cinza Carvão/Preto. Produto importado, sob encomenda.",
+      "details": [
+        "47 mm",
+        "Cor: Cinza Carvão/Preto",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-15",
+      "slug": "garmin-fenix-8-sapphire-amoled-preto",
+      "name": "Garmin Fenix 8 Sapphire Amoled - Preto",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "Único",
+      "price": 6389.9,
+      "images": [
+        "/loja/gx-15.jpg"
+      ],
+      "description": "Garmin Fenix 8 Sapphire Amoled - Preto, smartwatch GPS original Garmin, na cor Preto. Produto importado, sob encomenda.",
+      "details": [
+        "Cor: Preto",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-16",
+      "slug": "garmin-fenix-8-sapphire-43-mm-soft-gold-bege",
+      "name": "Garmin Fenix 8 Sapphire 43 mm - Soft Gold/Bege",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "43 mm",
+      "price": 6389.9,
+      "images": [
+        "/loja/gx-16.jpg"
+      ],
+      "description": "Garmin Fenix 8 Sapphire 43 mm - Soft Gold/Bege, smartwatch GPS original Garmin, na cor Soft Gold/Bege. Produto importado, sob encomenda.",
+      "details": [
+        "43 mm",
+        "Cor: Soft Gold/Bege",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-17",
+      "slug": "garmin-fenix-8-sapphire-43-mm-carbon-gray-titanium-black",
+      "name": "Garmin Fenix 8 Sapphire 43 mm - Carbon Gray/Titanium Black",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "43 mm",
+      "price": 6389.9,
+      "images": [
+        "/loja/gx-17.jpg"
+      ],
+      "description": "Garmin Fenix 8 Sapphire 43 mm - Carbon Gray/Titanium Black, smartwatch GPS original Garmin, na cor Carbon Gray/Titanium Black. Produto importado, sob encomenda.",
+      "details": [
+        "43 mm",
+        "Cor: Carbon Gray/Titanium Black",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-18",
+      "slug": "garmin-fenix-8-amoled-preto",
+      "name": "Garmin Fenix 8 AMOLED - Preto",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "Único",
+      "price": 6389.9,
+      "images": [
+        "/loja/gx-18.jpg"
+      ],
+      "description": "Garmin Fenix 8 AMOLED - Preto, smartwatch GPS original Garmin, na cor Preto. Produto importado, sob encomenda.",
+      "details": [
+        "Cor: Preto",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-19",
+      "slug": "garmin-enduro-3-preto",
+      "name": "Garmin Enduro 3 - Preto",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "Único",
+      "price": 6409.9,
+      "images": [
+        "/loja/gx-19.jpg"
+      ],
+      "description": "Garmin Enduro 3 - Preto, smartwatch GPS original Garmin, na cor Preto. Produto importado, sob encomenda.",
+      "details": [
+        "Cor: Preto",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-20",
+      "slug": "garmin-vivoactive-5-cream-gold-marfim",
+      "name": "Garmin Vivoactive 5 - Cream Gold/Marfim",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "Único",
+      "price": 1909.9,
+      "images": [
+        "/loja/gx-20.jpg"
+      ],
+      "description": "Garmin Vivoactive 5 - Cream Gold/Marfim, smartwatch GPS original Garmin, na cor Cream Gold/Marfim. Produto importado, sob encomenda.",
+      "details": [
+        "Cor: Cream Gold/Marfim",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-21",
+      "slug": "garmin-vivoactive-5-slate-preto",
+      "name": "Garmin Vivoactive 5 - Slate/Preto",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "Único",
+      "price": 1729.9,
+      "images": [
+        "/loja/gx-21.jpg"
+      ],
+      "description": "Garmin Vivoactive 5 - Slate/Preto, smartwatch GPS original Garmin, na cor Slate/Preto. Produto importado, sob encomenda.",
+      "details": [
+        "Cor: Slate/Preto",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-22",
+      "slug": "garmin-forerunner-70-43-mm-whitestone",
+      "name": "Garmin Forerunner 70 43 mm - Whitestone",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "43 mm",
+      "price": 1669.9,
+      "images": [
+        "/loja/gx-22.jpg"
+      ],
+      "description": "Garmin Forerunner 70 43 mm - Whitestone, smartwatch GPS original Garmin, na cor Whitestone. Produto importado, sob encomenda.",
+      "details": [
+        "43 mm",
+        "Cor: Whitestone",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-23",
+      "slug": "garmin-forerunner-70-43-mm-preto",
+      "name": "Garmin Forerunner 70 43 mm - Preto",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "43 mm",
+      "price": 1669.9,
+      "images": [
+        "/loja/gx-23.jpg"
+      ],
+      "description": "Garmin Forerunner 70 43 mm - Preto, smartwatch GPS original Garmin, na cor Preto. Produto importado, sob encomenda.",
+      "details": [
+        "43 mm",
+        "Cor: Preto",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "gx-24",
+      "slug": "garmin-vivoactive-6-pink-dawn",
+      "name": "Garmin Vivoactive 6 - Pink Dawn",
+      "brand": "Garmin",
+      "category": "Smartwatches",
+      "size": "Único",
+      "price": 2119.9,
+      "images": [
+        "/loja/gx-24.jpg"
+      ],
+      "description": "Garmin Vivoactive 6 - Pink Dawn, smartwatch GPS original Garmin, na cor Pink Dawn. Produto importado, sob encomenda.",
+      "details": [
+        "Cor: Pink Dawn",
+        "GPS",
+        "Produto original Garmin"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    }
+  ]
 }
