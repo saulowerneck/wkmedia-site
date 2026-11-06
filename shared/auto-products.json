@@ -4399,6 +4399,116 @@
       "madeToOrder": true,
       "stock": 0,
       "active": true
+    },
+    {
+      "id": "ap-01",
+      "slug": "apple-iphone-17-pro-max-256-gb-prateado",
+      "name": "Apple iPhone 17 Pro Max 256 GB (Prateado)",
+      "brand": "Apple",
+      "category": "iPhone",
+      "size": "256 GB",
+      "price": 8739.9,
+      "images": [
+        "/loja/ap-01.jpg"
+      ],
+      "description": "Apple iPhone 17 Pro Max 256 GB (Prateado), original Apple. Produto importado, sob encomenda. Versão internacional: confirme garantia e compatibilidade pelo WhatsApp antes de comprar.",
+      "details": [
+        "Tela 6,9\"",
+        "Dual SIM",
+        "Versão importada (A3257)",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "ap-02",
+      "slug": "apple-iphone-18-pro-256-gb-prateado",
+      "name": "Apple iPhone 18 Pro 256 GB (Prateado)",
+      "brand": "Apple",
+      "category": "iPhone",
+      "size": "256 GB",
+      "price": 9709.9,
+      "images": [
+        "/loja/ap-02.jpg"
+      ],
+      "description": "Apple iPhone 18 Pro 256 GB (Prateado), original Apple. Produto importado, sob encomenda. Versão internacional: confirme garantia e compatibilidade pelo WhatsApp antes de comprar.",
+      "details": [
+        "Tela 6,3\"",
+        "Dual eSIM",
+        "Versão importada (MJQ44LL/A)",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "ap-03",
+      "slug": "apple-macbook-air-13-m5-16-gb-512-gb-azul-c-u",
+      "name": "Apple MacBook Air 13\" M5 16 GB / 512 GB (Azul-céu)",
+      "brand": "Apple",
+      "category": "MacBook",
+      "size": "512 GB",
+      "price": 12589.9,
+      "images": [
+        "/loja/ap-03.jpg"
+      ],
+      "description": "Apple MacBook Air 13\" M5 16 GB / 512 GB (Azul-céu), original Apple. Produto importado, sob encomenda. Versão internacional: confirme garantia e compatibilidade pelo WhatsApp antes de comprar.",
+      "details": [
+        "Tela 13,6\"",
+        "Chip M5, 16 GB de memória",
+        "Versão importada (MDHH4LL/A)",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "ap-04",
+      "slug": "apple-macbook-air-15-m5-16-gb-512-gb-meia-noite",
+      "name": "Apple MacBook Air 15\" M5 16 GB / 512 GB (Meia-noite)",
+      "brand": "Apple",
+      "category": "MacBook",
+      "size": "512 GB",
+      "price": 12879.9,
+      "images": [
+        "/loja/ap-04.jpg"
+      ],
+      "description": "Apple MacBook Air 15\" M5 16 GB / 512 GB (Meia-noite), original Apple. Produto importado, sob encomenda. Versão internacional: confirme garantia e compatibilidade pelo WhatsApp antes de comprar.",
+      "details": [
+        "Tela 15,3\"",
+        "Chip M5, 16 GB de memória",
+        "Versão importada (MDVH4LL/A)",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
+    },
+    {
+      "id": "ap-05",
+      "slug": "apple-macbook-air-13-m5-16-gb-1-tb-prateado",
+      "name": "Apple MacBook Air 13\" M5 16 GB / 1 TB (Prateado)",
+      "brand": "Apple",
+      "category": "MacBook",
+      "size": "1 TB",
+      "price": 13729.9,
+      "images": [
+        "/loja/ap-05.jpg"
+      ],
+      "description": "Apple MacBook Air 13\" M5 16 GB / 1 TB (Prateado), original Apple. Produto importado, sob encomenda. Versão internacional: confirme garantia e compatibilidade pelo WhatsApp antes de comprar.",
+      "details": [
+        "Tela 13,6\"",
+        "Chip M5, 16 GB de memória",
+        "Versão importada (MDHF4LL/A)",
+        "Produto original Apple"
+      ],
+      "madeToOrder": true,
+      "stock": 0,
+      "active": true
     }
   ]
 }
