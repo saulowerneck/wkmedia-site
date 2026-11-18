@@ -1,0 +1,27 @@
+{
+  // WK Shop + site WK Media no Cloudflare Workers (deploy ilimitado pelo plano grátis; 500 builds/mês no Workers Builds).
+  "name": "wkmedia-site",
+  "main": "worker/index.js",
+  "compatibility_date": "2025-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "dist/public",
+    "binding": "ASSETS",
+    // Estas rotas vão direto ao Worker (formulário de contato em "/", funções, fotos); o resto continua nos assets.
+    "run_worker_first": ["/", "/.netlify/functions/*", "/loja-img/*"],
+    "not_found_handling": "single-page-application"
+  },
+  // Troca o Netlify Blobs por um stub; o armazenamento real vem dos bindings abaixo.
+  "alias": { "@netlify/blobs": "./worker/blobs-stub.js" },
+  // Recursos já criados na conta contato@wkmedia.com.br.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "wk-shop",
+      "database_id": "0a6eb778-c934-46db-a9d0-e6b49324ec78",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [{ "binding": "IMAGES", "id": "81411531dbc54128a14abb83a7a43925" }],
+  "vars": { "SITE_URL": "https://wkmedia.com.br" }
+}

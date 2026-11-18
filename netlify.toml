@@ -1,4 +1,6 @@
 [build]
+  # Só mudou a lista de produtos automáticos ou as fotos em client/public/loja? Pula o build (produto novo entra pelo GitHub, sem deploy).
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)shared/auto-products.json' ':(exclude)client/public/loja'"
   command = "npm run build"
   publish = "dist/public"
 
