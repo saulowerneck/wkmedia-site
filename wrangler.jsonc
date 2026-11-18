@@ -23,5 +23,5 @@
     }
   ],
   "kv_namespaces": [{ "binding": "IMAGES", "id": "81411531dbc54128a14abb83a7a43925" }],
-  "vars": { "SITE_URL": "https://wkmedia.com.br" }
+  "vars": { "SITE_URL": "https://loja.wkmedia.com.br" }
 }
