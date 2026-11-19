@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import { ArrowLeft, ArrowRight, Copy, Download, ImagePlus, LogOut, Pencil, Plus, Search, Trash2, Upload, X } from "lucide-react";
+import NewOrder from "@/components/admin/NewOrder";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { brl, type Catalog, type Product, type StoreSettings } from "@/lib/store";
 
@@ -362,7 +363,7 @@ function SettingsForm({ settings, onChange }: { settings: StoreSettings; onChang
 
 /* -------------------------------------------------------------------- panel */
 
-type Tab = "produtos" | "config";
+type Tab = "produtos" | "config" | "pedido";
 
 function Panel({ token, onLogout }: { token: string; onLogout: () => void }) {
   const [loading, setLoading] = useState(true);
@@ -568,9 +569,9 @@ function Panel({ token, onLogout }: { token: string; onLogout: () => void }) {
           <div className="flex items-center gap-6">
             <span className="font-bold text-lg" style={{ fontFamily: "var(--font-display)" }}>WK<span className="text-[var(--color-electric)]"> Shop</span> <span className="text-white/40 text-sm font-normal hidden sm:inline">painel</span></span>
             <nav className="flex gap-1 whitespace-nowrap">
-              {(["produtos", "config"] as Tab[]).map((t) => (
+              {(["produtos", "pedido", "config"] as Tab[]).map((t) => (
                 <button key={t} onClick={() => setTab(t)} className={`px-3 py-2 text-xs tracking-[0.12em] uppercase ${tab === t ? "text-[var(--color-electric)] border-b border-[var(--color-electric)]" : "text-white/50 hover:text-white"}`} style={mono}>
-                  {t === "produtos" ? `Produtos (${products.length})` : "Configurações"}
+                  {t === "produtos" ? `Produtos (${products.length})` : t === "pedido" ? "Novo pedido" : "Configurações"}
                 </button>
               ))}
             </nav>
@@ -582,6 +583,7 @@ function Panel({ token, onLogout }: { token: string; onLogout: () => void }) {
         </div>
       </header>
 
+      {tab !== "pedido" && (
       <div className={`sticky top-16 z-30 border-b ${dirty ? "border-[var(--color-electric)] bg-[#050A18]" : "border-white/10 bg-black"}`}>
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
           <p className="text-sm text-white/60">{dirty ? "Você tem alterações não salvas." : "Tudo salvo."}</p>
@@ -591,9 +593,12 @@ function Panel({ token, onLogout }: { token: string; onLogout: () => void }) {
           </div>
         </div>
       </div>
+      )}
 
       <main className="max-w-6xl mx-auto px-4 pt-8">
-        {tab === "config" ? (
+        {tab === "pedido" ? (
+          <NewOrder token={token} products={products} settings={settings} onAuthFail={authFail} />
+        ) : tab === "config" ? (
           <SettingsForm settings={settings} onChange={setSettings} />
         ) : (
           <>

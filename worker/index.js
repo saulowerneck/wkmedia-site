@@ -4,6 +4,7 @@ import catalog from "../netlify/functions/catalog.js";
 import adminCatalog from "../netlify/functions/admin-catalog.js";
 import adminLogin from "../netlify/functions/admin-login.js";
 import adminUpload from "../netlify/functions/admin-upload.js";
+import adminOrders from "../netlify/functions/admin-orders.js";
 import createCheckout from "../netlify/functions/create-checkout.js";
 import pixStatus from "../netlify/functions/pix-status.js";
 import { handler as mpWebhookV1 } from "../netlify/functions/mp-webhook.js";
@@ -130,6 +131,7 @@ const routes = {
   "admin-catalog": adminCatalog,
   "admin-login": adminLogin,
   "admin-upload": adminUpload,
+  "admin-orders": adminOrders,
   "create-checkout": createCheckout,
   "pix-status": pixStatus,
   "mp-webhook": mpWebhook,
