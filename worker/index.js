@@ -10,6 +10,8 @@ import { handler as mpWebhookV1 } from "../netlify/functions/mp-webhook.js";
 import { handler as notifyWhatsappV1 } from "../netlify/functions/notify-whatsapp.js";
 import shopImage from "../netlify/functions/shop-image.js";
 import { loadCatalog } from "../netlify/lib/catalog.js";
+import { applyPromo, promoActive } from "../netlify/lib/promo.js";
+import promoCfg from "../shared/promo.json";
 
 // mp-webhook e notify-whatsapp usam o formato antigo do Netlify (event -> {statusCode, body}); adaptamos para Request/Response.
 const fromV1 = (handler) => async (req) => {
@@ -27,6 +29,9 @@ const notifyWhatsapp = fromV1(notifyWhatsappV1);
 
 // Prévia de link (WhatsApp, Instagram etc.): as páginas /loja e /loja/<produto> usam o index.html do site da agência,
 // então trocamos título, descrição e imagem pelas da loja (e do produto, quando for o caso).
+// Chave da capa Black Friday no KV (/loja-img/<chave>); preencher depois do upload.
+const BF_COVER = "";
+const promoEnd = new Date(promoCfg.endsAt).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", timeZone: "America/Sao_Paulo" });
 const brl = (n) => Number(n).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
 async function shopMeta(url) {
@@ -39,15 +44,24 @@ async function shopMeta(url) {
     w: "1200",
     h: "630",
   };
+  const bf = promoActive();
+  if (bf) {
+    meta.title = `Black Friday WK Shop | 20% OFF em tudo até ${promoEnd}`;
+    meta.description = `Black Friday na WK Shop: 20% OFF em perfumes, skincare coreano, vinhos, licores, celulares e mais. Só até ${promoEnd}. Pix ou cartão em até 6x.`;
+    if (BF_COVER) meta.image = `${origin}/loja-img/${BF_COVER}`; // capa Black Friday 1200x630 (vazio = usa a capa normal)
+  }
   const slug = url.pathname.match(/^\/loja\/([^/]+)\/?$/)?.[1];
   if (slug) {
     try {
-      const { products = [] } = await loadCatalog();
+      const { products = [] } = applyPromo(await loadCatalog());
       const p = products.find((x) => x.slug === slug && x.active !== false);
       if (p) {
         const img = p.images?.[0];
-        meta.title = `${p.name} | WK Shop`;
-        meta.description = `${p.name} por ${brl(p.price)}. Produto original${p.brand ? ` ${p.brand}` : ""} importado, sob encomenda. Parcele em até 6x na WK Shop.`;
+        const off = p.promo && p.compareAtPrice > p.price;
+        meta.title = off ? `${p.name} | Black Friday WK Shop` : `${p.name} | WK Shop`;
+        meta.description = off
+          ? `BLACK FRIDAY: ${p.name} de ${brl(p.compareAtPrice)} por ${brl(p.price)} (${Math.round((1 - p.price / p.compareAtPrice) * 100)}% OFF), só até ${promoEnd}. Produto original importado. Pix ou cartão em até 6x.`
+          : `${p.name} por ${brl(p.price)}. Produto original${p.brand ? ` ${p.brand}` : ""} importado, sob encomenda. Parcele em até 6x na WK Shop.`;
         if (img) meta.image = img.startsWith("http") ? img : `${origin}${img}`;
         meta.url = `${origin}/loja/${slug}`;
         meta.w = meta.h = "900";
