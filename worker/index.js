@@ -8,6 +8,7 @@ import createCheckout from "../netlify/functions/create-checkout.js";
 import { handler as mpWebhookV1 } from "../netlify/functions/mp-webhook.js";
 import { handler as notifyWhatsappV1 } from "../netlify/functions/notify-whatsapp.js";
 import shopImage from "../netlify/functions/shop-image.js";
+import { loadCatalog } from "../netlify/lib/catalog.js";
 
 // mp-webhook e notify-whatsapp usam o formato antigo do Netlify (event -> {statusCode, body}); adaptamos para Request/Response.
 const fromV1 = (handler) => async (req) => {
@@ -22,6 +23,57 @@ const fromV1 = (handler) => async (req) => {
 };
 const mpWebhook = fromV1(mpWebhookV1);
 const notifyWhatsapp = fromV1(notifyWhatsappV1);
+
+// Prévia de link (WhatsApp, Instagram etc.): as páginas /loja e /loja/<produto> usam o index.html do site da agência,
+// então trocamos título, descrição e imagem pelas da loja (e do produto, quando for o caso).
+const brl = (n) => Number(n).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
+async function shopMeta(url) {
+  const origin = url.origin;
+  const meta = {
+    title: "WK Shop | Perfumes, skincare coreano, vinhos e licores importados",
+    description: "Produtos importados originais sob encomenda: perfumes, skincare coreano, vinhos, licores e mais. Parcele em até 6x e envio para todo o Brasil.",
+    image: `${origin}/og-loja.jpg`,
+    url: `${origin}/loja`,
+    w: "1200",
+    h: "630",
+  };
+  const slug = url.pathname.match(/^\/loja\/([^/]+)\/?$/)?.[1];
+  if (slug) {
+    try {
+      const { products = [] } = await loadCatalog();
+      const p = products.find((x) => x.slug === slug && x.active !== false);
+      if (p) {
+        const img = p.images?.[0];
+        meta.title = `${p.name} | WK Shop`;
+        meta.description = `${p.name} por ${brl(p.price)}. Produto original${p.brand ? ` ${p.brand}` : ""} importado, sob encomenda. Parcele em até 6x na WK Shop.`;
+        if (img) meta.image = img.startsWith("http") ? img : `${origin}${img}`;
+        meta.url = `${origin}/loja/${slug}`;
+        meta.w = meta.h = "900";
+      }
+    } catch {}
+  }
+  return meta;
+}
+
+async function withShopMeta(res, url) {
+  if (!(res.headers.get("content-type") || "").includes("text/html")) return res;
+  const m = await shopMeta(url);
+  const rw = new HTMLRewriter()
+    .on("title", { element: (el) => el.setInnerContent(m.title) })
+    .on('meta[name="description"]', { element: (el) => el.setAttribute("content", m.description) })
+    .on('meta[property="og:title"], meta[name="twitter:title"]', { element: (el) => el.setAttribute("content", m.title) })
+    .on('meta[property="og:description"], meta[name="twitter:description"]', { element: (el) => el.setAttribute("content", m.description) })
+    .on('meta[property="og:image"], meta[name="twitter:image"]', { element: (el) => el.setAttribute("content", m.image) })
+    .on('meta[property="og:image:width"]', { element: (el) => el.setAttribute("content", m.w) })
+    .on('meta[property="og:image:height"]', { element: (el) => el.setAttribute("content", m.h) })
+    .on('meta[property="og:url"]', { element: (el) => el.setAttribute("content", m.url) })
+    .on('meta[property="og:site_name"]', { element: (el) => el.setAttribute("content", "WK Shop") })
+    .on('link[rel="canonical"]', { element: (el) => el.setAttribute("href", m.url) });
+  const out = new Response(rw.transform(res).body, res);
+  out.headers.set("Cache-Control", "public, max-age=300");
+  return out;
+}
 
 const routes = {
   catalog,
@@ -59,6 +111,10 @@ export default {
       target.pathname = "/.netlify/functions/shop-image";
       target.search = `?key=${encodeURIComponent(img[1])}`;
       return shopImage(new Request(target, req));
+    }
+
+    if ((req.method === "GET" || req.method === "HEAD") && /^\/loja(\/[^/.]+)?\/?$/.test(url.pathname)) {
+      return withShopMeta(await env.ASSETS.fetch(req), url);
     }
 
     return env.ASSETS.fetch(req);
