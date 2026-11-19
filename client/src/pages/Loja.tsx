@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProductCard from "@/components/shop/ProductCard";
+import PromoBanner from "@/components/shop/PromoBanner";
 import RequestCard from "@/components/shop/RequestCard";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import { useCatalog } from "@/contexts/CatalogContext";
@@ -30,6 +31,7 @@ export default function Loja() {
       <Navbar />
       <main className="pt-40 pb-24">
         <div className="container">
+          <PromoBanner />
           <div className="flex items-center gap-3 mb-4">
             <div className="w-12 h-px bg-[var(--color-electric)]" />
             <span className="section-num">Loja online</span>

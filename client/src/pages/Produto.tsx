@@ -6,9 +6,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { ProductImage } from "@/components/shop/ProductCard";
+import PromoBanner from "@/components/shop/PromoBanner";
 import { useCart } from "@/contexts/CartContext";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { brl, isSoldOut, maxQty } from "@/lib/store";
+import { brl, discountPct, isSoldOut, maxQty } from "@/lib/store";
 import { useCatalog } from "@/contexts/CatalogContext";
 import NotFound from "./NotFound";
 
@@ -69,14 +70,21 @@ export default function Produto() {
       <Navbar />
       <main className="pt-36 pb-24">
         <div className="container">
+          <PromoBanner />
           <Link href="/loja" className="inline-flex items-center gap-2 text-white/40 hover:text-[var(--color-electric)] text-sm mb-8 transition-colors">
             <ArrowLeft size={16} /> Voltar para a loja
           </Link>
 
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
             <div>
-              <div className="aspect-square bg-white overflow-hidden">
+              <div className="relative aspect-square bg-white overflow-hidden">
                 <ProductImage product={{ ...product, images: product.images.length ? [product.images[img]] : [] }} />
+                {product.promo && hasDiscount && !soldOut && (
+                  <>
+                    <span className="absolute top-4 left-4 bg-[#E10600] text-white text-xs tracking-[0.12em] px-3 py-1.5" style={{ fontFamily: "var(--font-mono)" }}>BLACK FRIDAY</span>
+                    <span className="absolute top-4 right-4 bg-black text-white text-sm px-3 py-1.5" style={{ fontFamily: "var(--font-mono)" }}>-{discountPct(product)}%</span>
+                  </>
+                )}
               </div>
               {product.images.length > 1 && (
                 <div className="flex gap-2 mt-2">
@@ -106,10 +114,19 @@ export default function Produto() {
               {product.size && (
                 <p className="text-white/40 text-sm mb-3" style={{ fontFamily: "var(--font-mono)" }}>{product.size}</p>
               )}
-              <div className="mb-1">
-                {hasDiscount && <span className="text-white/30 line-through mr-3">{brl(product.compareAtPrice!)}</span>}
-                <span className="text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>{brl(product.price)}</span>
-              </div>
+              {product.promo && hasDiscount ? (
+                <div className="bg-[#0A0A0A] border border-[#E10600]/70 p-5 mb-3 flex flex-col gap-1.5">
+                  <span className="self-start bg-[#E10600] text-white text-[11px] tracking-[0.14em] px-2 py-1" style={{ fontFamily: "var(--font-mono)" }}>OFERTA BLACK FRIDAY</span>
+                  <span className="text-white/50 text-lg">De <span className="line-through">{brl(product.compareAtPrice!)}</span></span>
+                  <span className="text-white/80">Por <span className="text-4xl font-bold text-white ml-1" style={{ fontFamily: "var(--font-display)" }}>{brl(product.price)}</span></span>
+                  <span className="text-[#FF4D4D] text-sm">Você economiza {brl(product.compareAtPrice! - product.price)} ({discountPct(product)}% OFF)</span>
+                </div>
+              ) : (
+                <div className="mb-1">
+                  {hasDiscount && <span className="text-white/30 line-through mr-3">{brl(product.compareAtPrice!)}</span>}
+                  <span className="text-3xl font-bold" style={{ fontFamily: "var(--font-display)" }}>{brl(product.price)}</span>
+                </div>
+              )}
               {settings.installments > 1 && (
                 <p className="text-white/40 text-sm mb-6">
                   ou até {settings.installments}x de {brl(product.price / settings.installments)} no cartão

@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { ShoppingBag } from "lucide-react";
-import { brl, isSoldOut, type Product } from "@/lib/store";
+import { brl, discountPct, isSoldOut, type Product } from "@/lib/store";
 import { useCart } from "@/contexts/CartContext";
 
 export function ProductImage({ product, className = "" }: { product: Product; className?: string }) {
@@ -17,10 +17,8 @@ export function ProductImage({ product, className = "" }: { product: Product; cl
 export default function ProductCard({ product }: { product: Product }) {
   const { add } = useCart();
   const soldOut = isSoldOut(product);
-  const discount =
-    product.compareAtPrice && product.compareAtPrice > product.price
-      ? Math.round((1 - product.price / product.compareAtPrice) * 100)
-      : 0;
+  const discount = discountPct(product);
+  const bf = !!product.promo && discount > 0;
 
   return (
     <div className="group bg-black flex flex-col border-r border-b border-white/10 hover:bg-[#0A0A0A] transition-colors">
@@ -28,10 +26,22 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="w-full h-full group-hover:scale-[1.04] transition-transform duration-500">
           <ProductImage product={product} />
         </div>
-        {discount > 0 && !soldOut && (
-          <span className="absolute top-3 left-3 bg-[var(--color-electric)] text-white text-xs px-2 py-1" style={{ fontFamily: "var(--font-mono)" }}>
-            -{discount}%
-          </span>
+        {bf && !soldOut ? (
+          <>
+            <span className="absolute top-3 left-3 bg-[#E10600] text-white text-[11px] tracking-[0.12em] px-2 py-1" style={{ fontFamily: "var(--font-mono)" }}>
+              BLACK FRIDAY
+            </span>
+            <span className="absolute top-3 right-3 bg-black text-white text-xs px-2 py-1" style={{ fontFamily: "var(--font-mono)" }}>
+              -{discount}%
+            </span>
+          </>
+        ) : (
+          discount > 0 &&
+          !soldOut && (
+            <span className="absolute top-3 left-3 bg-[var(--color-electric)] text-white text-xs px-2 py-1" style={{ fontFamily: "var(--font-mono)" }}>
+              -{discount}%
+            </span>
+          )
         )}
         {soldOut && (
           <span className="absolute top-3 left-3 bg-black text-white text-xs px-2 py-1" style={{ fontFamily: "var(--font-mono)" }}>
@@ -49,14 +59,24 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.name}
         </Link>
         {product.size && <span className="text-white/35 text-xs mt-1" style={{ fontFamily: "var(--font-mono)" }}>{product.size}</span>}
-        <div className="mt-2 mb-4">
-          {product.compareAtPrice && product.compareAtPrice > product.price && (
-            <span className="text-white/30 text-sm line-through mr-2">{brl(product.compareAtPrice)}</span>
-          )}
-          <span className="text-white text-lg font-bold" style={{ fontFamily: "var(--font-display)" }}>
-            {brl(product.price)}
-          </span>
-        </div>
+        {bf ? (
+          <div className="mt-3 mb-4 flex flex-col gap-0.5">
+            <span className="text-white/50 text-sm">De <span className="line-through">{brl(product.compareAtPrice!)}</span></span>
+            <span className="text-white/75 text-xs">
+              Por <span className="text-white text-2xl font-bold ml-0.5" style={{ fontFamily: "var(--font-display)" }}>{brl(product.price)}</span>
+            </span>
+            <span className="text-[#FF4D4D] text-xs">Você economiza {brl(product.compareAtPrice! - product.price)}</span>
+          </div>
+        ) : (
+          <div className="mt-2 mb-4">
+            {product.compareAtPrice && product.compareAtPrice > product.price && (
+              <span className="text-white/30 text-sm line-through mr-2">{brl(product.compareAtPrice)}</span>
+            )}
+            <span className="text-white text-lg font-bold" style={{ fontFamily: "var(--font-display)" }}>
+              {brl(product.price)}
+            </span>
+          </div>
+        )}
         <button
           disabled={soldOut}
           onClick={() => add(product.id)}

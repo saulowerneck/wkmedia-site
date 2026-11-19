@@ -21,6 +21,8 @@ export interface Product {
   /** produto sob encomenda: não usa estoque */
   madeToOrder?: boolean;
   active?: boolean;
+  /** em promoção (Black Friday): preço "de" calculado pelo servidor */
+  promo?: boolean;
 }
 
 export interface StoreSettings {
@@ -30,6 +32,8 @@ export interface StoreSettings {
   madeToOrder: { label: string; note: string };
   pickup: { enabled: boolean; label: string; note: string };
   shipping: { enabled: boolean; label: string; flatRate: number; freeFrom: number; note: string };
+  /** promoção ativa (vem do servidor só durante o período) */
+  promo?: { name: string; endsAt: string };
 }
 
 export interface Catalog {
@@ -85,3 +89,13 @@ export function buildWhatsAppMessage(
     `Nome: ${opts.customer.name}\nE-mail: ${opts.customer.email}\nWhatsApp: ${opts.customer.phone}`
   );
 }
+
+/** % de desconto entre o preço "de" e o preço atual */
+export const discountPct = (p: Product) =>
+  p.compareAtPrice && p.compareAtPrice > p.price ? Math.round((1 - p.price / p.compareAtPrice) * 100) : 0;
+
+/** "23/11" a partir do fim da promoção */
+export const promoEndLabel = (endsAt: string) => {
+  const d = new Date(endsAt);
+  return d.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", timeZone: "America/Sao_Paulo" });
+};
