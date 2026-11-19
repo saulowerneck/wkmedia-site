@@ -10,7 +10,7 @@ import pixStatus from "../netlify/functions/pix-status.js";
 import { handler as mpWebhookV1 } from "../netlify/functions/mp-webhook.js";
 import { handler as notifyWhatsappV1 } from "../netlify/functions/notify-whatsapp.js";
 import shopImage from "../netlify/functions/shop-image.js";
-import { loadCatalog } from "../netlify/lib/catalog.js";
+import { imageStore, loadCatalog } from "../netlify/lib/catalog.js";
 import { applyPromo, promoActive } from "../netlify/lib/promo.js";
 import promoCfg from "../shared/promo.json";
 
@@ -92,6 +92,30 @@ async function withShopMeta(res, url) {
   return out;
 }
 
+
+// Fotos importadas de fontes externas (lista fechada, nada de proxy aberto): na primeira vez que a chave "ext-..." é pedida,
+// o Worker baixa a foto, deixa em 900x900 com fundo branco (Cloudflare Images) e guarda no KV como qualquer upload do painel.
+const EXT_IMAGES = {
+  "ext-medicube-pdrn-pink-gel-pad.jpg":
+    "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/almofadas_tonicas_medicube_pdrn_pink_collagen_toning_gel_pad_120ml_70_unidades_199782_7d71180c-1be8-4d02-89e4-0d2615ffddf6.big.avif",
+};
+async function ensureExtImage(env, key) {
+  const src = EXT_IMAGES[key];
+  if (!src || !env.IMG) return;
+  try {
+    if (await imageStore().getWithMetadata(key, { type: "arrayBuffer" })) return;
+    const up = await fetch(src, { headers: { "User-Agent": "Mozilla/5.0" } });
+    if (!up.ok || !up.body) return;
+    const out = await env.IMG.input(up.body)
+      .transform({ width: 900, height: 900, fit: "contain", background: "#ffffff" })
+      .output({ format: "image/jpeg", quality: 90 });
+    const buf = await new Response(out.image()).arrayBuffer();
+    await imageStore().set(key, buf, { metadata: { contentType: "image/jpeg" } });
+  } catch (err) {
+    console.error("Importar foto falhou:", key, err?.message || err);
+  }
+}
+
 // Foto do produto com a tag Black Friday por cima (prévia de link). Fora do período, ou se o Cloudflare Images
 // falhar, devolve a foto normal: a prévia nunca quebra.
 async function bfPhoto(req, url, env, ctx) {
@@ -100,9 +124,9 @@ async function bfPhoto(req, url, env, ctx) {
   const p = products.find((x) => x.slug === slug && x.active !== false);
   const src = p?.images?.[0];
   if (!src || src.startsWith("http")) return new Response("not found", { status: 404 });
-  const plain = () =>
+  const plain = async () =>
     src.startsWith("/loja-img/")
-      ? shopImage(new Request(new URL(`/.netlify/functions/shop-image?key=${encodeURIComponent(src.split("/").pop())}`, url.origin)))
+      ? (await ensureExtImage(env, src.split("/").pop()), shopImage(new Request(new URL(`/.netlify/functions/shop-image?key=${encodeURIComponent(src.split("/").pop())}`, url.origin))))
       : env.ASSETS.fetch(new Request(new URL(src, url.origin)));
   if (!env.IMG || !promoActive()) return plain();
 
@@ -162,6 +186,7 @@ export default {
 
     const img = url.pathname.match(/^\/loja-img\/([^/]+)$/);
     if (img) {
+      await ensureExtImage(env, img[1]);
       const target = new URL(req.url);
       target.pathname = "/.netlify/functions/shop-image";
       target.search = `?key=${encodeURIComponent(img[1])}`;
