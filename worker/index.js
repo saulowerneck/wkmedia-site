@@ -33,7 +33,7 @@ async function shopMeta(url) {
   const meta = {
     title: "WK Shop | Perfumes, skincare coreano, vinhos e licores importados",
     description: "Produtos importados originais sob encomenda: perfumes, skincare coreano, vinhos, licores e mais. Parcele em até 6x e envio para todo o Brasil.",
-    image: `${origin}/og-loja.jpg`,
+    image: `${origin}/loja-img/mwmtov6e-45e398c0.jpg`, // capa: vinhos, celulares, coreanos, creme VS, perfumes, licores
     url: `${origin}/loja`,
     w: "1200",
     h: "630",
