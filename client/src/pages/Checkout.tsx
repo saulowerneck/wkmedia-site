@@ -140,6 +140,11 @@ export default function Checkout() {
         }),
       });
       const data = await res.json().catch(() => ({}));
+      if (res.ok && data.init_point) {
+        // Pix pela página do Mercado Pago (quando o Pix direto na loja não está liberado na conta)
+        window.location.href = data.init_point;
+        return;
+      }
       if (res.ok && data.qrCode) {
         try {
           (window as any).gtag?.("event", "begin_checkout", { currency: "BRL", value: total });

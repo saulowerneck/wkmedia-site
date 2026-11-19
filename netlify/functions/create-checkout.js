@@ -113,6 +113,7 @@ export default async (req) => {
   };
 
   // 5) Pix direto na loja: cria o pagamento e devolve o QR Code / copia e cola (sem sair do site)
+  let pixOnly = false;
   if (input.payment === "pix") {
     const total = money(subtotal + shipping);
     const expires = new Date(Date.now() + 60 * 60 * 1000);
@@ -137,10 +138,10 @@ export default async (req) => {
       const data = await res.json();
       const tx = data?.point_of_interaction?.transaction_data;
       if (!res.ok || !tx?.qr_code) {
+        // Sem permissão para a API de pagamentos (app só de Checkout Pro) ou erro do MP: cai para o Checkout Pro só com Pix.
         console.error("Mercado Pago Pix erro:", res.status, JSON.stringify(data));
-        return json(502, { error: "mp_error", message: "Não foi possível gerar o Pix agora. Tente o pagamento online ou peça pelo WhatsApp.", dbg: { s: res.status, m: data?.message, c: data?.cause } }); // TEMP-DIAG
-      }
-      return json(200, {
+        pixOnly = true;
+      } else return json(200, {
         orderId,
         paymentId: data.id,
         total,
@@ -150,8 +151,15 @@ export default async (req) => {
       });
     } catch (err) {
       console.error("Erro ao criar Pix:", err);
-      return json(502, { error: "mp_unreachable", message: "Falha ao falar com o Mercado Pago." });
+      pixOnly = true;
     }
+  }
+
+  if (pixOnly) {
+    preference.payment_methods = {
+      installments: 1,
+      excluded_payment_types: ["credit_card", "debit_card", "ticket", "atm", "prepaid_card", "digital_currency", "digital_wallet"].map((id) => ({ id })),
+    };
   }
 
   try {
