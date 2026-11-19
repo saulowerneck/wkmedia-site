@@ -138,7 +138,7 @@ export default async (req) => {
       const tx = data?.point_of_interaction?.transaction_data;
       if (!res.ok || !tx?.qr_code) {
         console.error("Mercado Pago Pix erro:", res.status, JSON.stringify(data));
-        return json(502, { error: "mp_error", message: "Não foi possível gerar o Pix agora. Tente o pagamento online ou peça pelo WhatsApp." });
+        return json(502, { error: "mp_error", message: "Não foi possível gerar o Pix agora. Tente o pagamento online ou peça pelo WhatsApp.", dbg: { s: res.status, m: data?.message, c: data?.cause } }); // TEMP-DIAG
       }
       return json(200, {
         orderId,
