@@ -1,8 +1,8 @@
 /* WK Shop — checkout */
-import { useState } from "react";
-import { Link } from "wouter";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "wouter";
 import { toast } from "sonner";
-import { MessageCircle, Lock } from "lucide-react";
+import { MessageCircle, Lock, QrCode, Copy, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ProductImage } from "@/components/shop/ProductCard";
@@ -24,6 +24,9 @@ export default function Checkout() {
   const canPickup = settings.pickup.enabled;
   const [method, setMethod] = useState<DeliveryMethod>(canShip ? "ship" : "pickup");
   const [busy, setBusy] = useState(false);
+  const [pix, setPix] = useState<null | { paymentId: number; total: number; qrCode: string; qrCodeBase64: string; expiresAt: string }>(null);
+  const [copied, setCopied] = useState(false);
+  const [, navigate] = useLocation();
   const [form, setForm] = useState({
     name: "", email: "", phone: "", cep: "", street: "", number: "", complement: "", district: "", city: "", state: "",
   });
@@ -96,6 +99,76 @@ export default function Checkout() {
     }
   }
 
+  // Confirmação automática do Pix: consulta o status a cada 4 s e leva para a tela de sucesso.
+  useEffect(() => {
+    if (!pix) return;
+    let stop = false;
+    const tick = async () => {
+      try {
+        const r = await fetch(`/.netlify/functions/pix-status?id=${pix.paymentId}`);
+        const d = await r.json();
+        if (stop) return;
+        if (d.status === "approved") navigate("/pedido/sucesso");
+        else if (d.status === "cancelled" || d.status === "rejected" || d.status === "expired") {
+          setPix(null);
+          toast.error("O Pix expirou ou foi cancelado. Gere um novo.");
+        }
+      } catch {
+        /* tenta de novo no próximo ciclo */
+      }
+    };
+    const t = setInterval(tick, 4000);
+    return () => {
+      stop = true;
+      clearInterval(t);
+    };
+  }, [pix, navigate]);
+
+  async function payPix() {
+    const err = validate();
+    if (err) return toast.error(err);
+    setBusy(true);
+    try {
+      const res = await fetch("/.netlify/functions/create-checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          payment: "pix",
+          items: lines.map((l) => ({ id: l.product.id, qty: l.qty })),
+          customer: { name: form.name.trim(), email: form.email.trim(), phone: onlyDigits(form.phone) },
+          delivery: { method, address: method === "ship" ? { ...form, state: form.state.toUpperCase() } : null },
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.qrCode) {
+        try {
+          (window as any).gtag?.("event", "begin_checkout", { currency: "BRL", value: total });
+        } catch {
+          /* analytics é opcional */
+        }
+        setPix(data);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      toast.error(data.message || "Não foi possível gerar o Pix. Tente novamente ou peça pelo WhatsApp.");
+    } catch {
+      toast.error("Falha de conexão. Tente novamente.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function copyPix() {
+    if (!pix) return;
+    try {
+      await navigator.clipboard.writeText(pix.qrCode);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      toast.error("Não consegui copiar. Selecione o código e copie manualmente.");
+    }
+  }
+
   function orderViaWhatsApp() {
     const err = validate();
     if (err) return toast.error(err);
@@ -116,7 +189,23 @@ export default function Checkout() {
             Finalizar <span className="text-[var(--color-electric)]">compra</span>
           </h1>
 
-          {lines.length === 0 ? (
+          {pix ? (
+            <div className="max-w-md mx-auto border border-white/10 bg-[#050505] p-8 text-center">
+              <p className="text-sm tracking-[0.2em] uppercase text-[var(--color-electric)] mb-4" style={{ fontFamily: "var(--font-mono)" }}>Pague com Pix</p>
+              <p className="text-3xl font-bold mb-1" style={{ fontFamily: "var(--font-display)" }}>{brl(pix.total)}</p>
+              <p className="text-white/40 text-xs mb-6">Aponte a câmera do app do seu banco para o QR Code</p>
+              <div className="bg-white p-3 inline-block mb-6">
+                <img src={`data:image/png;base64,${pix.qrCodeBase64}`} alt="QR Code Pix" width={224} height={224} className="block w-56 h-56" />
+              </div>
+              <p className="text-white/40 text-xs mb-2">Ou use o Pix copia e cola:</p>
+              <textarea readOnly value={pix.qrCode} onFocus={(e) => e.currentTarget.select()} rows={3} className={`${field} text-[11px] break-all resize-none mb-3`} />
+              <button onClick={copyPix} className="btn-electric w-full justify-center">
+                {copied ? <><Check size={14} /> Copiado!</> : <><Copy size={14} /> Copiar código Pix</>}
+              </button>
+              <p className="text-white/50 text-xs mt-5">Aguardando o pagamento... esta tela confirma sozinha assim que o Pix cair. O código vale por 1 hora.</p>
+              <button onClick={() => setPix(null)} className="text-white/40 hover:text-white text-xs underline mt-4">Voltar e escolher outra forma de pagamento</button>
+            </div>
+          ) : lines.length === 0 ? (
             <div className="border border-white/10 p-12 text-center">
               <p className="text-white/50 mb-6">Seu carrinho está vazio.</p>
               <Link href="/loja" className="btn-electric">Ver produtos</Link>
@@ -225,10 +314,14 @@ export default function Checkout() {
                   <div className="flex justify-between text-lg font-bold pt-3 border-t border-white/10"><dt>Total</dt><dd style={{ fontFamily: "var(--font-display)" }}>{brl(total)}</dd></div>
                 </dl>
 
-                <button onClick={payOnline} disabled={busy} className="btn-electric w-full justify-center mt-6 disabled:opacity-60">
-                  <Lock size={14} /> {busy ? "Abrindo pagamento..." : "Pagar online"}
+                <button onClick={payPix} disabled={busy} className="btn-electric w-full justify-center mt-6 disabled:opacity-60">
+                  <QrCode size={14} /> {busy ? "Gerando Pix..." : "Pagar com Pix"}
                 </button>
-                <p className="text-[11px] text-white/30 text-center mt-2">Pix, cartão (até {settings.installments}x) ou boleto · Mercado Pago</p>
+                <p className="text-[11px] text-white/30 text-center mt-2">QR Code e copia e cola · confirmação na hora</p>
+                <button onClick={payOnline} disabled={busy} className="w-full mt-4 border border-white/15 hover:border-[var(--color-electric)] text-white/80 py-3.5 text-xs tracking-[0.15em] uppercase transition-colors flex items-center justify-center gap-2 disabled:opacity-60" style={{ fontFamily: "var(--font-mono)" }}>
+                  <Lock size={14} /> {busy ? "Abrindo pagamento..." : "Cartão ou boleto"}
+                </button>
+                <p className="text-[11px] text-white/30 text-center mt-2">Cartão (até {settings.installments}x) ou boleto · Mercado Pago</p>
                 <button onClick={orderViaWhatsApp} className="w-full mt-4 border border-white/15 hover:border-[#25D366] hover:text-[#25D366] text-white/70 py-3.5 text-xs tracking-[0.15em] uppercase transition-colors flex items-center justify-center gap-2" style={{ fontFamily: "var(--font-mono)" }}>
                   <MessageCircle size={14} /> Pedir pelo WhatsApp
                 </button>

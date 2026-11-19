@@ -5,6 +5,7 @@ import adminCatalog from "../netlify/functions/admin-catalog.js";
 import adminLogin from "../netlify/functions/admin-login.js";
 import adminUpload from "../netlify/functions/admin-upload.js";
 import createCheckout from "../netlify/functions/create-checkout.js";
+import pixStatus from "../netlify/functions/pix-status.js";
 import { handler as mpWebhookV1 } from "../netlify/functions/mp-webhook.js";
 import { handler as notifyWhatsappV1 } from "../netlify/functions/notify-whatsapp.js";
 import shopImage from "../netlify/functions/shop-image.js";
@@ -81,6 +82,7 @@ const routes = {
   "admin-login": adminLogin,
   "admin-upload": adminUpload,
   "create-checkout": createCheckout,
+  "pix-status": pixStatus,
   "mp-webhook": mpWebhook,
   "notify-whatsapp": notifyWhatsapp,
   "shop-image": shopImage,

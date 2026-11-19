@@ -112,6 +112,48 @@ export default async (req) => {
     },
   };
 
+  // 5) Pix direto na loja: cria o pagamento e devolve o QR Code / copia e cola (sem sair do site)
+  if (input.payment === "pix") {
+    const total = money(subtotal + shipping);
+    const expires = new Date(Date.now() + 60 * 60 * 1000);
+    const brt = new Date(expires.getTime() - 3 * 60 * 60 * 1000).toISOString().replace("Z", "-03:00");
+    const [first, ...rest] = name.split(/\s+/);
+    try {
+      const res = await fetch("https://api.mercadopago.com/v1/payments", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", "X-Idempotency-Key": orderId },
+        body: JSON.stringify({
+          transaction_amount: total,
+          description: `Pedido ${orderId} - WK Shop`,
+          payment_method_id: "pix",
+          payer: { email, first_name: first, last_name: rest.join(" ") || first },
+          external_reference: orderId,
+          notification_url: preference.notification_url,
+          statement_descriptor: "WKSHOP",
+          date_of_expiration: brt,
+          metadata: preference.metadata,
+        }),
+      });
+      const data = await res.json();
+      const tx = data?.point_of_interaction?.transaction_data;
+      if (!res.ok || !tx?.qr_code) {
+        console.error("Mercado Pago Pix erro:", res.status, JSON.stringify(data));
+        return json(502, { error: "mp_error", message: "Não foi possível gerar o Pix agora. Tente o pagamento online ou peça pelo WhatsApp." });
+      }
+      return json(200, {
+        orderId,
+        paymentId: data.id,
+        total,
+        qrCode: tx.qr_code,
+        qrCodeBase64: tx.qr_code_base64,
+        expiresAt: expires.toISOString(),
+      });
+    } catch (err) {
+      console.error("Erro ao criar Pix:", err);
+      return json(502, { error: "mp_unreachable", message: "Falha ao falar com o Mercado Pago." });
+    }
+  }
+
   try {
     const res = await fetch("https://api.mercadopago.com/checkout/preferences", {
       method: "POST",
