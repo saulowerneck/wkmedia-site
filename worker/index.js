@@ -188,6 +188,16 @@ export default {
 
     if ((req.method === "GET" || req.method === "HEAD") && /^\/loja-og\/[^/]+\.jpg$/.test(url.pathname)) return bfPhoto(req, url, env, ctx);
 
+    // TESTE TEMPORÁRIO do aviso por WhatsApp (CallMeBot): abrir o link envia uma mensagem de teste. Remover depois.
+    if (url.pathname === "/__teste-aviso/8b258a238d154fa2037efdad") {
+      const phone = env.CALLMEBOT_PHONE, key = env.CALLMEBOT_APIKEY;
+      if (!phone || !key) return new Response("CALLMEBOT_PHONE/CALLMEBOT_APIKEY nao configurados no Worker", { status: 500 });
+      const text = "Teste de aviso da WK Shop: se voce recebeu esta mensagem, os avisos de pedido pago estao funcionando.";
+      const r = await fetch(`https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phone)}&text=${encodeURIComponent(text)}&apikey=${encodeURIComponent(key)}`);
+      const body = (await r.text()).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 300);
+      return new Response(`CallMeBot respondeu ${r.status}: ${body}`, { status: 200, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } });
+    }
+
     const img = url.pathname.match(/^\/loja-img\/([^/]+)$/);
     if (img) {
       await ensureExtImage(env, img[1]);
