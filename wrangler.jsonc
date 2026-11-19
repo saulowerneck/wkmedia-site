@@ -23,5 +23,6 @@
     }
   ],
   "kv_namespaces": [{ "binding": "IMAGES", "id": "81411531dbc54128a14abb83a7a43925" }],
+  "observability": { "enabled": true },
   "vars": { "SITE_URL": "https://loja.wkmedia.com.br" }
 }
