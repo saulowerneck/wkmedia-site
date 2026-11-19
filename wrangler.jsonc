@@ -8,7 +8,7 @@
     "directory": "dist/public",
     "binding": "ASSETS",
     // Estas rotas vão direto ao Worker (formulário de contato em "/", funções, fotos, prévia de link da loja); o resto continua nos assets.
-    "run_worker_first": ["/", "/loja", "/loja/*", "!/loja/*.jpg", "/.netlify/functions/*", "/loja-img/*"],
+    "run_worker_first": ["/", "/loja", "/loja/*", "!/loja/*.jpg", "/.netlify/functions/*", "/loja-img/*", "/loja-og/*"],
     "not_found_handling": "single-page-application"
   },
   // Troca o Netlify Blobs por um stub; o armazenamento real vem dos bindings abaixo.
@@ -23,6 +23,8 @@
     }
   ],
   "kv_namespaces": [{ "binding": "IMAGES", "id": "81411531dbc54128a14abb83a7a43925" }],
+  // Cloudflare Images (transformação): junta a foto do produto com a tag Black Friday na prévia do link.
+  "images": { "binding": "IMG" },
   "observability": { "enabled": true },
   "vars": { "SITE_URL": "https://loja.wkmedia.com.br" }
 }

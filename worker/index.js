@@ -63,6 +63,7 @@ async function shopMeta(url) {
           ? `BLACK FRIDAY: ${p.name} de ${brl(p.compareAtPrice)} por ${brl(p.price)} (${Math.round((1 - p.price / p.compareAtPrice) * 100)}% OFF), só até ${promoEnd}. Produto original importado. Pix ou cartão em até 6x.`
           : `${p.name} por ${brl(p.price)}. Produto original${p.brand ? ` ${p.brand}` : ""} importado, sob encomenda. Parcele em até 6x na WK Shop.`;
         if (img) meta.image = img.startsWith("http") ? img : `${origin}${img}`;
+        if (off && img && !img.startsWith("http")) meta.image = `${origin}/loja-og/${slug}.jpg`; // foto com a tag Black Friday por cima
         meta.url = `${origin}/loja/${slug}`;
         meta.w = meta.h = "900";
       }
@@ -88,6 +89,40 @@ async function withShopMeta(res, url) {
   const out = new Response(rw.transform(res).body, res);
   out.headers.set("Cache-Control", "public, max-age=300");
   return out;
+}
+
+// Foto do produto com a tag Black Friday por cima (prévia de link). Fora do período, ou se o Cloudflare Images
+// falhar, devolve a foto normal: a prévia nunca quebra.
+async function bfPhoto(req, url, env, ctx) {
+  const slug = decodeURIComponent(url.pathname.match(/^\/loja-og\/([^/]+)\.jpg$/)?.[1] || "");
+  const { products = [] } = await loadCatalog();
+  const p = products.find((x) => x.slug === slug && x.active !== false);
+  const src = p?.images?.[0];
+  if (!src || src.startsWith("http")) return new Response("not found", { status: 404 });
+  const plain = () =>
+    src.startsWith("/loja-img/")
+      ? shopImage(new Request(new URL(`/.netlify/functions/shop-image?key=${encodeURIComponent(src.split("/").pop())}`, url.origin)))
+      : env.ASSETS.fetch(new Request(new URL(src, url.origin)));
+  if (!env.IMG || !promoActive()) return plain();
+
+  const cache = caches.default;
+  const cacheKey = new Request(`${url.origin}/loja-og/${slug}.jpg?v=1`);
+  const hit = await cache.match(cacheKey);
+  if (hit) return hit;
+  try {
+    const [photo, overlay] = await Promise.all([plain(), env.ASSETS.fetch(new Request(new URL("/bf-overlay.png", url.origin)))]);
+    if (!photo.ok || !photo.body || !overlay.ok || !overlay.body) return photo.ok ? photo : plain();
+    const out = await env.IMG.input(photo.body)
+      .transform({ width: 900, height: 900, fit: "contain", background: "#ffffff" })
+      .draw(env.IMG.input(overlay.body), { top: 0, left: 0 })
+      .output({ format: "image/jpeg", quality: 85 });
+    const res = new Response(out.image(), { headers: { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=3600" } });
+    ctx.waitUntil(cache.put(cacheKey, res.clone()));
+    return res;
+  } catch (err) {
+    console.error("Imagem Black Friday falhou, usando a foto normal:", err?.message || err);
+    return plain();
+  }
 }
 
 const routes = {
@@ -120,6 +155,8 @@ export default {
       ctx.waitUntil(notifyWhatsappV1({ body: JSON.stringify({ payload: { data } }) }));
       return new Response("ok");
     }
+
+    if ((req.method === "GET" || req.method === "HEAD") && /^\/loja-og\/[^/]+\.jpg$/.test(url.pathname)) return bfPhoto(req, url, env, ctx);
 
     const img = url.pathname.match(/^\/loja-img\/([^/]+)$/);
     if (img) {
