@@ -96,6 +96,10 @@ async function withShopMeta(res, url) {
 // Fotos importadas de fontes externas (lista fechada, nada de proxy aberto): na primeira vez que a chave "ext-..." é pedida,
 // o Worker baixa a foto, deixa em 900x900 com fundo branco (Cloudflare Images) e guarda no KV como qualquer upload do painel.
 const EXT_IMAGES = {
+  "ext-airpods-4.jpg": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/fone_de_ouvido_apple_airpods_4_mxp63lla_bluetooth_179803.big.jpg",
+  "ext-airpods-pro-3.jpg": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/fone_de_ouvido_apple_airpods_pro_3_mfhp4lla_bluetooth_193625_087bd0fe-51d0-4086-83ed-654e29043f33.big.webp",
+  "ext-redmi-buds-8-pro.jpg": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/fone_de_ouvido_xiaomi_redmi_buds_8_pro_bluetooth_197343_843a374a-426c-46d6-b759-4021a3a6fad4.big.avif",
+  "ext-redmi-buds-6.jpg": "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/fone_de_ouvido_xiaomi_redmi_buds_6_bluetooth_182917.big.jpg",
   "ext-medicube-pdrn-pink-gel-pad.jpg":
     "https://us-ord-10.linodeobjects.com/bucket-prod/site/media/fotos/modelos/almofadas_tonicas_medicube_pdrn_pink_collagen_toning_gel_pad_120ml_70_unidades_199782_7d71180c-1be8-4d02-89e4-0d2615ffddf6.big.avif",
 };
