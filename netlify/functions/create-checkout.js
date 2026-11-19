@@ -121,14 +121,7 @@ export default async (req) => {
     const data = await res.json();
     if (!res.ok || !data.init_point) {
       console.error("Mercado Pago erro:", res.status, JSON.stringify(data));
-      // DIAGNÓSTICO TEMPORÁRIO: devolve o motivo do Mercado Pago (sem dados sensíveis) para achar a causa.
-      let me = null;
-      try {
-        const r2 = await fetch("https://api.mercadopago.com/users/me", { headers: { Authorization: `Bearer ${token}` } });
-        const d2 = await r2.json().catch(() => ({}));
-        me = { status: r2.status, site: d2.site_id, msg: d2.message };
-      } catch {}
-      return json(502, { error: "mp_error", message: "Não foi possível iniciar o pagamento agora.", detail: { status: res.status, mp: data.message || data.error, cause: data.cause, token: { prefix: token.slice(0, 8), len: token.length, trimmed: token === token.trim() }, me } });
+      return json(502, { error: "mp_error", message: "Não foi possível iniciar o pagamento agora." });
     }
     return json(200, { init_point: data.init_point, orderId });
   } catch (err) {
