@@ -30,7 +30,7 @@ const notifyWhatsapp = fromV1(notifyWhatsappV1);
 // Prévia de link (WhatsApp, Instagram etc.): as páginas /loja e /loja/<produto> usam o index.html do site da agência,
 // então trocamos título, descrição e imagem pelas da loja (e do produto, quando for o caso).
 // Chave da capa Black Friday no KV (/loja-img/<chave>); preencher depois do upload.
-const BF_COVER = "";
+const BF_COVER = "mwnnx1cu-6b36d18a.jpg";
 const promoEnd = new Date(promoCfg.endsAt).toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", timeZone: "America/Sao_Paulo" });
 const brl = (n) => Number(n).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
